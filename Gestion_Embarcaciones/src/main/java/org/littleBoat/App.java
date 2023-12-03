@@ -1,4 +1,4 @@
-package org.littleBoat;
+package org.littleboat;
 
 /**
  * Hello world!
