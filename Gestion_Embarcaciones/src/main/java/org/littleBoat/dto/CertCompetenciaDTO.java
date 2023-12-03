@@ -1,4 +1,4 @@
-package org.littleBoat.dto;
+package org.littleboat.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
