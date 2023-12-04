@@ -13,14 +13,14 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.littleboat.connection.ConnectionInterface;
+import org.littleboat.connection.ConnectionManager;
 import org.littleboat.dto.CertCompetenciaDTO;
 
 public class CertificadoCompetenciaDAO {
-    private final ConnectionInterface connectionManager;
+    private final ConnectionManager connectionManager;
     public static final Logger LOGGER = Logger.getLogger(CertificadoCompetenciaDAO.class.getName());
 
-    public CertificadoCompetenciaDAO(ConnectionInterface connectionManager) {
+    public CertificadoCompetenciaDAO(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }
 

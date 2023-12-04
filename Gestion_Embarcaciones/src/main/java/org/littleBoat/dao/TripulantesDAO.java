@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.littleboat.connection.ConnectionInterface;
+import org.littleboat.connection.ConnectionManager;
 import org.littleboat.dto.TripulantesDTO;
 
 public class TripulantesDAO {
-    private final ConnectionInterface connectionManager;
+    private final ConnectionManager connectionManager;
     private static final Logger LOGGER = Logger.getLogger(TripulantesDAO.class.getName());
 
-    public TripulantesDAO(ConnectionInterface connectionManager) {
+    public TripulantesDAO(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }
 

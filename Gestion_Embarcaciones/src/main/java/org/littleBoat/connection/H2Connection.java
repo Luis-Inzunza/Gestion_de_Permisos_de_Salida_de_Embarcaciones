@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class H2Connection implements ConnectionInterface {
+public class H2Connection implements ConnectionManager {
 
     private static H2Connection instance;
 

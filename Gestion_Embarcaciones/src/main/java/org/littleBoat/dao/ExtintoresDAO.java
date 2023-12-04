@@ -6,7 +6,6 @@
  */
 package org.littleboat.dao;
 
-import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,15 +13,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.littleboat.connection.ConnectionInterface;
+import org.littleboat.connection.ConnectionManager;
 import org.littleboat.dto.ExtintoresDTO;
-import org.littleboat.dto.PropietariosDTO;
 
 public class ExtintoresDAO {
     public static final Logger LOGGER = Logger.getLogger(ExtintoresDAO.class.getName());
-    private final ConnectionInterface connectionManager;
+    private final ConnectionManager connectionManager;
 
-    public ExtintoresDAO(ConnectionInterface connectionManager) {
+    public ExtintoresDAO(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }
 

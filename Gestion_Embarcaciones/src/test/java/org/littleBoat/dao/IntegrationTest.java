@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.junit.jupiter.api.*;
 import org.littleboat.connection.H2Connection;
-import org.littleboat.dao.*;
 import org.littleboat.dto.PermisoPescaComDTO;
 import org.littleboat.dto.TripulantesDTO;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
