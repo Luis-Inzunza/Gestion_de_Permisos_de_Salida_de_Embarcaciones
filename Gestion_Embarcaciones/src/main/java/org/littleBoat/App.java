@@ -1,6 +1,6 @@
-package org.littleBoat;
+package org.littleboat;
 
-import org.littleBoat.View.NuevoTripulante;
+import org.littleboat.View.NuevoTripulante;
 
 /**
  * Hello world!

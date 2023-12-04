@@ -1,4 +1,4 @@
-package org.littleBoat.connection;
+package org.littleboat.connection;
 
 import org.flywaydb.core.Flyway;
 
