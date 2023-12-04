@@ -1,4 +1,4 @@
-package org.littleBoat;
+package org.littleboat;
 
 
 import org.junit.jupiter.api.Test;
