@@ -24,9 +24,9 @@ public class TableButtonsRenderer extends DefaultTableCellRenderer {
             case BUTTONS_OWNER:
                 panel = new OwnerTableButtons();
                 break;
-            //case BUTTONS_CREWMATE:
-                //panel = new CrewList();
-                //break;
+            case BUTTONS_CREWMATE:
+                panel = new CrewmatesTable();
+                break;
             default:
                 throw new IllegalArgumentException("Invalid component type");
         }
@@ -36,10 +36,14 @@ public class TableButtonsRenderer extends DefaultTableCellRenderer {
     }
 
     private void setPanelBackground(JPanel panel, boolean isSelected) {
-        if (panel instanceof ShipTableButtons || panel instanceof OwnerTableButtons) {
+        boolean isValidPanel = panel instanceof ShipTableButtons || panel instanceof OwnerTableButtons||panel instanceof CrewmatesTable;
+        if (isValidPanel==true) {
             if (!isSelected) {
                 panel.setBackground(Color.WHITE);
-            }
+            }else
+                panel.setBackground(getBackground());
+        }else{
+            System.out.println("el panel no es uno que sea valido");
         }
     }
 }

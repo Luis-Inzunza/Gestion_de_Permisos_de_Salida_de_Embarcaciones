@@ -6,7 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import org.littleboat.View.Historial;
+import org.littleboat.View.Login;
 import org.littleboat.View.NavigationWindow;
+import org.littleboat.View.NuevoBarco;
+import org.littleboat.View.NuevoPropetario;
 import org.littleboat.View.OwnerTable;
 import org.littleboat.View.ShipTable;
 
@@ -20,7 +25,6 @@ public class NavWDController{
 
     public NavWDController(NavigationWindow inNavigationWindow) {
         navigationWindow = inNavigationWindow;
-        
         localMutablePanel = navigationWindow.getMutablePanel();
         navigationWindow.setSearchButtonListener(new SearchButtonHandler());
         navigationWindow.setNewElementButtonListener(new NewElementButtonHandler());
@@ -30,6 +34,7 @@ public class NavWDController{
         navigationWindow.setPrevButtonListener(new PrevButtonHandler());
         navigationWindow.setNextButtonListener(new NextButtonHandler());
         navigationWindow.setCertificadeHistoryListener(new CertificateHistoryButtonHandler());
+        navigationWindow.setFilterComboBoxListener(new FilterButtonHandler());
         localOwnerList = new OwnerTable();
         localShipList = new ShipTable();
         loadOwnerView();
@@ -56,15 +61,18 @@ public class NavWDController{
     
     private class FilterButtonHandler implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {
-            System.out.println("Abrir filtros");
+        public void actionPerformed(ActionEvent e) {  
+            System.out.println("conecto al back y proyecto en la pagina segun el filtro el cual es");
+            System.out.println(navigationWindow.getFilterComboBoxSelectedItem());
         }
     }
 
     private class SearchButtonHandler implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("solicitar el dato mediante sentencia sql");
+            System.out.println("tomo lo que hay en searchbar que es ");
+            System.out.println(navigationWindow.getSearchBarText());
+            System.out.println("ahora este dato lo meto como el nombre en una sentencia sql");
         }
     }
 
@@ -72,8 +80,18 @@ public class NavWDController{
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("distinguir qué lista está activa y redirigir a la ventana correcta");
+            if (localMutablePanel.getComponent(0) instanceof OwnerTable) {
+                NuevoPropetario newOwnerWindow = new NuevoPropetario();
+                newOwnerWindow.setVisible(true);
+            } else if (localMutablePanel.getComponent(0) instanceof ShipTable) {
+                NuevoBarco newShipWindow = new NuevoBarco();
+                newShipWindow.setVisible(true);
+            } else {
+                System.out.println("error");
+            }
         }
     }
+    
 
     private class ShipListButtonHandler implements ActionListener {
         @Override
@@ -109,6 +127,8 @@ public class NavWDController{
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("desplegar la ventana de historial de embarcaciones");
+            Historial historial = new Historial();
+            historial.setVisible(true);
         }
     }
 }

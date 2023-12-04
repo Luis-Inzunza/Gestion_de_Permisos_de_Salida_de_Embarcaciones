@@ -4,6 +4,8 @@
  */
 package org.littleboat.View;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author usuario
@@ -183,4 +185,11 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel TitleLabel;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    public void setAccessBtnListener(ActionListener listener){
+        AccessBtn.addActionListener(listener);
+    }
+    public String getAccessTextFieldText(){
+        return AccessText.getText();
+    }
 }

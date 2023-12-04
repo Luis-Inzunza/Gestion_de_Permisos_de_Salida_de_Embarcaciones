@@ -252,6 +252,9 @@ public class NavigationWindow extends javax.swing.JFrame {
     public void setShipListButtonListener(ActionListener listener) {
         shipListBtn.addActionListener(listener);
     }
+    public void setFilterComboBoxListener(ActionListener listener){
+        filterComboBox.addActionListener(listener);
+    }
      public String getSearchBarText() {
         return searchBar.getText();
     }
@@ -261,4 +264,5 @@ public class NavigationWindow extends javax.swing.JFrame {
     public String getFilterComboBoxSelectedItem() {
         return filterComboBox.getSelectedItem().toString();
     }
+    
 }

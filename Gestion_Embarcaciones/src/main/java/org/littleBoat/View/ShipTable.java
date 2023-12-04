@@ -21,22 +21,26 @@ public class ShipTable extends javax.swing.JPanel {
 
             @Override
             public void onCertificadeButton(int row) {
-               
             }
 
             @Override
             public void onCrewmateButton(int row) {
                 System.out.println("crewmate en "+row);
+                CrewmatesTable crewmatesTable = new CrewmatesTable();
+                crewmatesTable.setVisible(true);
             }
 
             @Override
             public void onEditButton(int row) {
                 System.out.println("edit en "+ row);
+                NuevoBarco newShip = new NuevoBarco();
+                newShip.setVisible(true);
             }
 
             @Override
             public void onDeleteButton(int row) {
                 System.out.println("delete en "+ row);
+                System.out.println("cambiar el status de visibilidad a 0");
             }
             
         };

@@ -32,6 +32,11 @@ public class EditTableButtons extends DefaultCellEditor {
                 shipTableButtons.initEvent(tableActionEvent, row);
                 panel = shipTableButtons;
                 break;
+            case BUTTONS_CREWMATE:
+            CrewmatesTableButtons crewmatesTable = new CrewmatesTableButtons();
+                crewmatesTable.initEvent(tableActionEvent, row);
+                panel = crewmatesTable;
+                break;
             default:
                 panel = new JPanel();  // Otra clase por defecto si es necesario
         }

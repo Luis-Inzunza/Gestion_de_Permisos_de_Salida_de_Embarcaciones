@@ -4,6 +4,8 @@
  */
 package org.littleboat.View;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author usuario
@@ -218,4 +220,8 @@ public class Historial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    public void closeWindow(){
+    }
 }
+

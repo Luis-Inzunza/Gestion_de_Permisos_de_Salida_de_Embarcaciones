@@ -23,21 +23,25 @@ public class OwnerTable extends javax.swing.JPanel {
             @Override
             public void onCertificadeButton(int row) {
                 System.out.println("certificade en "+ row);
+                NuevaEmbarcacion newEmbarcation = new NuevaEmbarcacion();
+                newEmbarcation.setVisible(true);
             }
 
             @Override
             public void onCrewmateButton(int row) {
-                
             }
 
             @Override
             public void onEditButton(int row) {
                 System.out.println("edit en "+ row);
+                NuevoPropetario newOwner = new NuevoPropetario();
+                newOwner.setVisible(true);
             }
 
             @Override
             public void onDeleteButton(int row) {
                 System.out.println("delete en "+ row);
+                System.out.println("status de visibilidad setearlo a 0");
             }
             
         };

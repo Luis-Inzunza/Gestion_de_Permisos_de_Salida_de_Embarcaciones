@@ -1,6 +1,8 @@
 package org.littleboat;
 
+import org.littleboat.Controller.LoginController;
 import org.littleboat.Controller.NavWDController;
+import org.littleboat.View.Login;
 import org.littleboat.View.NavigationWindow;
 import org.littleboat.View.NuevoTripulante;
 
@@ -13,7 +15,8 @@ public class App {
         //NuevoTripulante barco = new NuevoTripulante();
         //barco.setVisible(true);
        NavigationWindow navigationWindow = new NavigationWindow();
-        NavWDController controller = new NavWDController(navigationWindow);
-        navigationWindow.setVisible(true);
+       Login login = new Login();
+       LoginController appLogin = new LoginController(navigationWindow, login);
+        login.setVisible(true);
     }
 }

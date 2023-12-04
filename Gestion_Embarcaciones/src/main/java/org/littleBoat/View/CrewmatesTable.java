@@ -15,6 +15,33 @@ public class CrewmatesTable extends javax.swing.JPanel {
      */
     public CrewmatesTable() {
         initComponents();
+        ButtonsType crewmateButtons = ButtonsType.BUTTONS_CREWMATE;
+        TableActionEvent actionEvent = new TableActionEvent() {
+
+            @Override
+            public void onCertificadeButton(int row) {
+            }
+
+            @Override
+            public void onCrewmateButton(int row) {
+            }
+
+            @Override
+            public void onEditButton(int row) {
+                System.out.println("edit en "+ row);
+                NuevoTripulante newCrewmateWindow = new NuevoTripulante();
+                newCrewmateWindow.setVisible(true);
+            }
+
+            @Override
+            public void onDeleteButton(int row) {
+                System.out.println("delete en "+ row);
+                System.out.println("cambiar el status de visibilidad a 0");
+            }
+            
+        };
+        crewmateTable.getColumnModel().getColumn(3).setCellRenderer(new TableButtonsRenderer(crewmateButtons));
+        crewmateTable.getColumnModel().getColumn(3).setCellEditor(new EditTableButtons(crewmateButtons,actionEvent));  
     }
 
     /**
