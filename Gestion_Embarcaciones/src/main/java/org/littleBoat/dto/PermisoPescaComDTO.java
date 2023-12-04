@@ -10,9 +10,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PermisoPescaComDTO {
-    //PK
+    // PK
     private String noPermiso;
-    //FK
+    // FK
     private int matricula;
     private LocalDate fVigenciaPPC;
 }

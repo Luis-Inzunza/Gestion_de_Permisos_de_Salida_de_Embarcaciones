@@ -10,10 +10,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExtintoresDTO {
-    //PK,FK
+    // PK,FK
     private Integer matricula;
-    //PK
+    // PK
     private LocalDate fVigenciaEx;
-    //FK
+    // FK
     private int cantidad;
 }
