@@ -1,4 +1,4 @@
-package org.littleboat.dto;
+package org.littleBoat.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,11 +8,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MotoresDTO {
-    //PK,FK
+    // PK,FK
     private int matricula;
-    //PK
+    // PK
     private int noMotor;
-    //FK
+    // FK
     private String marca;
     private float potencia_KW;
 }

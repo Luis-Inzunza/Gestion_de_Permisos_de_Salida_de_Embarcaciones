@@ -1,4 +1,4 @@
-package org.littleboat.dto;
+package org.littleBoat.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,9 +10,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CertSeguridadDTO {
-    //PK
+    // PK
     private String noCert;
-    //FK
+    // FK
     private int matricula;
     private String lugarExpedicion;
     private LocalDate fExpedicion;

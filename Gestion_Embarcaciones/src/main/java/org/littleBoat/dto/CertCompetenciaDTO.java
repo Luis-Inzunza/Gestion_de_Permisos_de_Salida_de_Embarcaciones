@@ -1,4 +1,4 @@
-package org.littleboat.dto;
+package org.littleBoat.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,9 +10,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CertCompetenciaDTO {
-    //PK
+    // PK
     private String folio;
-    //FK
+    // FK
     private String curp;
     private LocalDate fExpiracion;
     private String categoria;

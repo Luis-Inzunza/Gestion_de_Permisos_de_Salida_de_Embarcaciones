@@ -1,4 +1,4 @@
-package org.littleboat.dto;
+package org.littleBoat.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,11 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TripulantesDTO {
-    //PK
+    // PK
     private String curp;
-    //FK
+    // FK
     private String NomTripulante;
     private String apsTripulante;
     private int matricula;
 }
-

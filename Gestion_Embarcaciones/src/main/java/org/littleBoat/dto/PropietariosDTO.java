@@ -1,4 +1,4 @@
-package org.littleboat.dto;
+package org.littleBoat.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PropietariosDTO {
-    //PK
+    // PK
     private Integer idProp;
-    //FK
+    // FK
     private String nomProp;
     private String apsProp;
     private String telefono;

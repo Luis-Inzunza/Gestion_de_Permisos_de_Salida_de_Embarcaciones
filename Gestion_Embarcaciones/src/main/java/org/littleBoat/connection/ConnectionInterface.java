@@ -1,4 +1,4 @@
-package org.littleboat.connection;
+package org.littleBoat.connection;
 
 import java.sql.Connection;
 

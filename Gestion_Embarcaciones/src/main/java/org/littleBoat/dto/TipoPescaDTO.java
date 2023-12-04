@@ -1,4 +1,4 @@
-package org.littleboat.dto;
+package org.littleBoat.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,10 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TipoPescaDTO {
-    //PK,FK
+    // PK,FK
     private String noPermiso;
-    //PK
+    // PK
     private int noEspecie;
-    //FK
-    private String especie;    
+    // FK
+    private String especie;
 }
