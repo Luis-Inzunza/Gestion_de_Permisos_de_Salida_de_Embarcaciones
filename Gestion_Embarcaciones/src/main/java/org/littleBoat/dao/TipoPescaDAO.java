@@ -6,7 +6,7 @@
 **/
 package org.littleboat.dao;
 
-import org.littleboat.connection.ConnectionInterface;
+import org.littleboat.connection.ConnectionManager;
 import org.littleboat.connection.H2Connection;
 import org.littleboat.dto.TipoPescaDTO;
 import java.sql.*;
@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TipoPescaDAO {
-    private final ConnectionInterface connectionManager;
+    private final ConnectionManager connectionManager;
     private static final Logger LOGGER = Logger.getLogger(TipoPescaDAO.class.getName());
 
     public TipoPescaDAO(H2Connection instance) {

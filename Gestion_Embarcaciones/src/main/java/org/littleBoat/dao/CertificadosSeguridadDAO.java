@@ -15,14 +15,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.littleboat.connection.ConnectionInterface;
+import org.littleboat.connection.ConnectionManager;
 import org.littleboat.dto.CertSeguridadDTO;
 
 public class CertificadosSeguridadDAO {
-    private final ConnectionInterface connectionManager;
+    private final ConnectionManager connectionManager;
     private static final Logger LOGGER = Logger.getLogger(CertificadosSeguridadDAO.class.getName());
 
-    public CertificadosSeguridadDAO(ConnectionInterface connectionManager) {
+    public CertificadosSeguridadDAO(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }
 

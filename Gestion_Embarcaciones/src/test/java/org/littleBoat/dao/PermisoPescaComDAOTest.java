@@ -1,13 +1,8 @@
 package org.littleboat.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
-
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.littleboat.connection.H2Connection;
 import org.littleboat.dto.PermisoPescaComDTO;

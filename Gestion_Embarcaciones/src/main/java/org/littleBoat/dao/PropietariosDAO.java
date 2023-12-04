@@ -6,7 +6,7 @@
  * @version 1.0
  */package org.littleboat.dao;
 
-import org.littleboat.connection.ConnectionInterface;
+import org.littleboat.connection.ConnectionManager;
 
 import org.littleboat.dto.PropietariosDTO;
 
@@ -18,9 +18,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PropietariosDAO extends PaginDao{
-    private ConnectionInterface connectionManager;
+    private ConnectionManager connectionManager;
     private static final Logger LOGGER = Logger.getLogger(PropietariosDAO.class.getName());
-    public PropietariosDAO(ConnectionInterface connection) {
+    public PropietariosDAO(ConnectionManager connection) {
 
         this.connectionManager = connection;
         setPages(calculatePages());

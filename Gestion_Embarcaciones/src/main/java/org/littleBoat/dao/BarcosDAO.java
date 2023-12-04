@@ -7,7 +7,7 @@
 
 package org.littleboat.dao;
 
-import org.littleboat.connection.ConnectionInterface;
+import org.littleboat.connection.ConnectionManager;
 import org.littleboat.dto.BarcosDTO;
 
 import java.sql.Connection;
@@ -21,10 +21,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BarcosDAO extends PaginDao{
-    private final ConnectionInterface connectionManager;
+    private final ConnectionManager connectionManager;
     public static final Logger LOGGER = Logger.getLogger(BarcosDAO.class.getName());
 
-    public BarcosDAO(ConnectionInterface connectionManager) {
+    public BarcosDAO(ConnectionManager connectionManager) {
         this.connectionManager = connectionManager;
     }
 
