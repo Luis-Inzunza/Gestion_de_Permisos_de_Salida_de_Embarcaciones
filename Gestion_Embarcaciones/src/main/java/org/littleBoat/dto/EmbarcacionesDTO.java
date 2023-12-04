@@ -1,6 +1,5 @@
 package org.littleboat.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,10 +10,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmbarcacionesDTO {
-    //PK,FK
+    // PK,FK
     private int matricula;
-    //PK
+    // PK
     private LocalDate fSalida;
-    //FK
+    // FK
     private LocalDate fRegreso;
 }

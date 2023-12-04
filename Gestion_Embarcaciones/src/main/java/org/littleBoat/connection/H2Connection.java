@@ -18,7 +18,7 @@ public class H2Connection implements ConnectionInterface {
 
     private static final String password = "";
 
-    static{
+    static {
         connect();
         Flyway flyway = Flyway.configure().dataSource(url, username, password)
                 .locations("classpath:db.migration.h2")
@@ -49,7 +49,7 @@ public class H2Connection implements ConnectionInterface {
 
     @Override
     public void closeConnection(Connection connection) {
-       System.out.println("Dummy Function");
+        System.out.println("Dummy Function");
     }
 
 }

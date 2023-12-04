@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PropietariosDTO {
-    //PK
+    // PK
     private Integer idProp;
-    //FK
+    // FK
     private String nomProp;
     private String apsProp;
     private String telefono;

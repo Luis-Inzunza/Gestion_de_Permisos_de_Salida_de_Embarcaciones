@@ -8,11 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TripulantesDTO {
-    //PK
+    // PK
     private String curp;
-    //FK
+    // FK
     private String NomTripulante;
     private String apsTripulante;
     private int matricula;
 }
-

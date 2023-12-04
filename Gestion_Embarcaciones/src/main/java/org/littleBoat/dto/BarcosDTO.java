@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BarcosDTO{
-    //PK
+public class BarcosDTO {
+    // PK
     private int matricula;
-    //FK
+    // FK
     private String nomBarco;
     private String capitaniaPuerto;
     private String estadoBarco;
@@ -19,5 +19,5 @@ public class BarcosDTO{
     private float eslora_Mts;
     private float manga_Mts;
     private float puntual_Mts;
-    private int idProp;    
+    private int idProp;
 }
