@@ -4,6 +4,9 @@
  */
 package org.littleboat.View;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author samux
@@ -26,20 +29,15 @@ public class OwnerTableButtons extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        owner_GeneratePermitButton = new org.littleboat.View.CustomButton();
-        Owner_EditButton = new org.littleboat.View.CustomButton();
-        Owner_DeleteButton = new org.littleboat.View.CustomButton();
+        owner_CertificadeButton = new org.littleboat.View.CustomButton();
+        owner_EditButton = new org.littleboat.View.CustomButton();
+        owner_DeleteButton = new org.littleboat.View.CustomButton();
 
-        owner_GeneratePermitButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\Proyecto\\Gestion_Embarcaciones\\src\\main\\java\\org\\littleBoat\\resources\\CertificadeIcon.png")); // NOI18N
-        owner_GeneratePermitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                owner_GeneratePermitButtonActionPerformed(evt);
-            }
-        });
+        owner_CertificadeButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\CertificadeIcon.png")); // NOI18N
 
-        Owner_EditButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\Proyecto\\Gestion_Embarcaciones\\src\\main\\java\\org\\littleBoat\\resources\\EditIcon.png")); // NOI18N
+        owner_EditButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\EditIcon.png")); // NOI18N
 
-        Owner_DeleteButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\Proyecto\\Gestion_Embarcaciones\\src\\main\\java\\org\\littleBoat\\resources\\DeleteIcon.png")); // NOI18N
+        owner_DeleteButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\DeleteIcon.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -47,11 +45,11 @@ public class OwnerTableButtons extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(owner_GeneratePermitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(owner_CertificadeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Owner_EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(owner_EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Owner_DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(owner_DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -59,9 +57,9 @@ public class OwnerTableButtons extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(owner_GeneratePermitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Owner_EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Owner_DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(owner_CertificadeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(owner_EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(owner_DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -71,13 +69,45 @@ public class OwnerTableButtons extends javax.swing.JPanel {
     }//GEN-LAST:event_actionButton4ActionPerformed
 
     private void owner_GeneratePermitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_owner_GeneratePermitButtonActionPerformed
-        System.out.println("generar certificado");
+        // TODO add your handling code here:
     }//GEN-LAST:event_owner_GeneratePermitButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.littleboat.View.CustomButton Owner_DeleteButton;
-    private org.littleboat.View.CustomButton Owner_EditButton;
-    private org.littleboat.View.CustomButton owner_GeneratePermitButton;
+    private org.littleboat.View.CustomButton owner_CertificadeButton;
+    private org.littleboat.View.CustomButton owner_DeleteButton;
+    private org.littleboat.View.CustomButton owner_EditButton;
     // End of variables declaration//GEN-END:variables
+
+    public void initEvent(TableActionEvent  event, int row){
+        owner_CertificadeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                event.onCertificadeButton(row);
+            }
+        });
+        owner_EditButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                event.onEditButton(row);
+            }
+        });
+        owner_DeleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                event.onDeleteButton(row);
+            }
+        });
+    }
+   // public void setOwner_CertificadeButtonListener(ActionListener listener) {
+      //  owner_CertificadeButton.addActionListener(listener);
+   // }
+
+   /// public void setOwner_DeleteButtonListener(ActionListener listener) {
+      //  owner_DeleteButton.addActionListener(listener);
+   // }
+
+   // public void setOwner_EditButtonListener(ActionListener listener) {
+    //    owner_EditButton.addActionListener(listener);
+   // }
 }

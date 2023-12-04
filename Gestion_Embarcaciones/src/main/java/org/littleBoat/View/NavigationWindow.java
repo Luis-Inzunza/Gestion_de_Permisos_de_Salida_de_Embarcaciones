@@ -5,6 +5,8 @@
 package org.littleboat.View;
 
 import java.awt.event.ActionListener;
+
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -34,7 +36,6 @@ public class NavigationWindow extends javax.swing.JFrame {
         navPanel = new javax.swing.JPanel();
         searchIcon = new javax.swing.JButton();
         searchBar = new javax.swing.JTextField();
-        filterBtn = new javax.swing.JButton();
         shipListBtn = new javax.swing.JButton();
         ownerListBtn = new javax.swing.JButton();
         newElementBtn = new javax.swing.JButton();
@@ -42,23 +43,21 @@ public class NavigationWindow extends javax.swing.JFrame {
         prevBtn = new javax.swing.JButton();
         nextBtn = new javax.swing.JButton();
         mutablePanel = new javax.swing.JPanel();
+        filterComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("NavWDFrame"); // NOI18N
 
         navPanel.setBackground(new java.awt.Color(170, 234, 248));
 
+        searchIcon.setBackground(new java.awt.Color(170, 234, 248));
+        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/searchIcon.png"))); // NOI18N
+        searchIcon.setBorderPainted(false);
+
         searchBar.setName(""); // NOI18N
         searchBar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchBarActionPerformed(evt);
-            }
-        });
-
-        filterBtn.setText("Filters");
-        filterBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                filterBtnActionPerformed(evt);
             }
         });
 
@@ -90,37 +89,38 @@ public class NavigationWindow extends javax.swing.JFrame {
             .addGap(0, 361, Short.MAX_VALUE)
         );
 
+        filterComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtros", "Listo para pescar", "En pesca", "Pronto a caducar", "Caducados" }));
+
         javax.swing.GroupLayout navPanelLayout = new javax.swing.GroupLayout(navPanel);
         navPanel.setLayout(navPanelLayout);
         navPanelLayout.setHorizontalGroup(
             navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(navPanelLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(searchIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(mutablePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(navPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(prevBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(nextBtn)))
+                .addGap(36, 36, 36))
+            .addGroup(navPanelLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(searchIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(filterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(shipListBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ownerListBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newElementBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(navPanelLayout.createSequentialGroup()
-                        .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(mutablePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(navPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 606, Short.MAX_VALUE)
-                                .addComponent(prevBtn)
-                                .addGap(18, 18, 18)
-                                .addComponent(nextBtn)))
-                        .addGap(36, 36, 36))
-                    .addGroup(navPanelLayout.createSequentialGroup()
-                        .addComponent(searchBar, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(filterBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(shipListBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ownerListBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(newElementBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(certificadeHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(297, 297, 297))))
+                .addComponent(certificadeHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(206, 206, 206))
         );
         navPanelLayout.setVerticalGroup(
             navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,15 +128,16 @@ public class NavigationWindow extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(filterBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ownerListBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(shipListBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(certificadeHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(newElementBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(searchIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(newElementBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ownerListBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(shipListBtn)
+                        .addComponent(filterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(navPanelLayout.createSequentialGroup()
+                        .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(mutablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -167,10 +168,6 @@ public class NavigationWindow extends javax.swing.JFrame {
     private void searchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_searchBarActionPerformed
-
-    private void filterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_filterBtnActionPerformed
 
     private void shipListBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shipListBtnActionPerformed
         // TODO add your handling code here:
@@ -216,7 +213,7 @@ public class NavigationWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton certificadeHistory;
-    private javax.swing.JButton filterBtn;
+    private javax.swing.JComboBox<String> filterComboBox;
     private javax.swing.JPanel mutablePanel;
     private javax.swing.JPanel navPanel;
     private javax.swing.JButton newElementBtn;
@@ -228,44 +225,40 @@ public class NavigationWindow extends javax.swing.JFrame {
     private javax.swing.JButton shipListBtn;
     // End of variables declaration//GEN-END:variables
     
-    public JPanel getMutablePanel() {
+    public void setCertificadeHistoryListener(ActionListener listener){
+        certificadeHistory.addActionListener(listener);
+    }
+    
+    public void setNewElementButtonListener(ActionListener listener) {
+        newElementBtn.addActionListener(listener);
+    }
+
+    public void setNextButtonListener(ActionListener listener) {
+        nextBtn.addActionListener(listener);
+    }
+
+    public void setOwnerListButtonListener(ActionListener listener) {
+        ownerListBtn.addActionListener(listener);
+    }
+
+    public void setPrevButtonListener(ActionListener listener) {
+        prevBtn.addActionListener(listener);
+    }
+
+    public void setSearchButtonListener(ActionListener listener) {
+        searchIcon.addActionListener(listener);;
+    }
+
+    public void setShipListButtonListener(ActionListener listener) {
+        shipListBtn.addActionListener(listener);
+    }
+     public String getSearchBarText() {
+        return searchBar.getText();
+    }
+     public JPanel getMutablePanel() {
         return mutablePanel;
     }
-
-    public JButton getCertificadeHistory() {
-        return certificadeHistory;
+    public String getFilterComboBoxSelectedItem() {
+        return filterComboBox.getSelectedItem().toString();
     }
-
-    public JButton getFilterBtn() {
-        return filterBtn;
-    }
-    
-    public JButton getNewElementBtn() {
-        return newElementBtn;
-    }
-
-    public JButton getNextBtn() {
-        return nextBtn;
-    }
-
-    public JButton getOwnerListBtn() {
-        return ownerListBtn;
-    }
-
-    public JButton getPrevBtn() {
-        return prevBtn;
-    }
-
-    public JTextField getSearchBar() {
-        return searchBar;
-    }
-
-    public JButton getSearchButton() {
-        return searchIcon;
-    }
-
-    public JButton getShipListBtn() {
-        return shipListBtn;
-    }
-    
 }

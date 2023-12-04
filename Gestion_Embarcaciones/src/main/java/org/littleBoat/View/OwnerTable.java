@@ -6,9 +6,6 @@ package org.littleboat.View;
 
 import javax.swing.JTable;
 
-import org.littleboat.View.EditCustomButton;
-import org.littleboat.View.InsertOwnerTableButtons;
-
 /**
  *
  * @author samux
@@ -20,8 +17,33 @@ public class OwnerTable extends javax.swing.JPanel {
      */
     public OwnerTable() {
         initComponents();
-        ownerTable.getColumnModel().getColumn(3).setCellRenderer(new InsertOwnerTableButtons());
-        ownerTable.getColumnModel().getColumn(3).setCellEditor(new EditCustomButton());   
+        ButtonsType OwnerButtons = ButtonsType.BUTTONS_OWNER;
+        TableActionEvent actionEvent = new TableActionEvent() {
+
+            @Override
+            public void onCertificadeButton(int row) {
+                System.out.println("certificade en "+ row);
+            }
+
+            @Override
+            public void onCrewmateButton(int row) {
+                
+            }
+
+            @Override
+            public void onEditButton(int row) {
+                System.out.println("edit en "+ row);
+            }
+
+            @Override
+            public void onDeleteButton(int row) {
+                System.out.println("delete en "+ row);
+            }
+            
+        };
+        //ownerTable.getColumnModel().getColumn(3).setCellRenderer(new InsertOwnerTableButtons());
+        ownerTable.getColumnModel().getColumn(3).setCellRenderer(new TableButtonsRenderer(OwnerButtons));
+        ownerTable.getColumnModel().getColumn(3).setCellEditor(new EditTableButtons(OwnerButtons,actionEvent));   
     }
 
     /**
@@ -44,7 +66,7 @@ public class OwnerTable extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Full Name", "Phone Number", "Email", "Actions"
+                "Full Name", "Phone Number", "Email", ""
             }
         ) {
             Class[] types = new Class [] {
@@ -84,8 +106,7 @@ public class OwnerTable extends javax.swing.JPanel {
     private javax.swing.JTable ownerTable;
     // End of variables declaration//GEN-END:variables
 
-    public JTable getShipsTable() {
+    public JTable getOwnerTable() {
         return ownerTable;
     }
-
 }

@@ -18,11 +18,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="owner_GeneratePermitButton" min="-2" max="-2" attributes="0"/>
+              <Component id="owner_CertificadeButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="Owner_EditButton" min="-2" max="-2" attributes="0"/>
+              <Component id="owner_EditButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="Owner_DeleteButton" min="-2" max="-2" attributes="0"/>
+              <Component id="owner_DeleteButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -32,9 +32,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="owner_GeneratePermitButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Owner_EditButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="Owner_DeleteButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="owner_CertificadeButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="owner_EditButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="owner_DeleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -42,27 +42,24 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="org.littleBoat.View.CustomButton" name="owner_GeneratePermitButton">
+    <Component class="org.littleboat.View.CustomButton" name="owner_CertificadeButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Desktop\Escuela\ConstruccionSoftware\Proyecto\Gestion_Embarcaciones\src\main\java\org\littleBoat\resources\CertificadeIcon.png"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="owner_GeneratePermitButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="org.littleBoat.View.CustomButton" name="Owner_EditButton">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Desktop\Escuela\ConstruccionSoftware\Proyecto\Gestion_Embarcaciones\src\main\java\org\littleBoat\resources\EditIcon.png"/>
+          <Image iconType="2" name="C:\Desktop\Escuela\ConstruccionSoftware\repositorio\Gestion_Embarcaciones\src\main\resources\viewIcons\CertificadeIcon.png"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="org.littleBoat.View.CustomButton" name="Owner_DeleteButton">
+    <Component class="org.littleboat.View.CustomButton" name="owner_EditButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Desktop\Escuela\ConstruccionSoftware\Proyecto\Gestion_Embarcaciones\src\main\java\org\littleBoat\resources\DeleteIcon.png"/>
+          <Image iconType="2" name="C:\Desktop\Escuela\ConstruccionSoftware\repositorio\Gestion_Embarcaciones\src\main\resources\viewIcons\EditIcon.png"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="org.littleboat.View.CustomButton" name="owner_DeleteButton">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Desktop\Escuela\ConstruccionSoftware\repositorio\Gestion_Embarcaciones\src\main\resources\viewIcons\DeleteIcon.png"/>
         </Property>
       </Properties>
     </Component>

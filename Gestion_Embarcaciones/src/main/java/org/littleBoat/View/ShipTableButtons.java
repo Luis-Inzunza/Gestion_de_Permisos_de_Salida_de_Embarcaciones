@@ -4,6 +4,9 @@
  */
 package org.littleboat.View;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author samux
@@ -26,20 +29,15 @@ public class ShipTableButtons extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Ship_CrewButton = new org.littleboat.View.CustomButton();
-        Ship_EditButton = new org.littleboat.View.CustomButton();
-        Ship_DeleteButton = new org.littleboat.View.CustomButton();
+        ship_CrewButton = new org.littleboat.View.CustomButton();
+        ship_EditButton = new org.littleboat.View.CustomButton();
+        ship_DeleteButton = new org.littleboat.View.CustomButton();
 
-        Ship_CrewButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\Proyecto\\Gestion_Embarcaciones\\src\\main\\java\\org\\littleBoat\\resources\\CrewIcon.png")); // NOI18N
-        Ship_CrewButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ship_CrewButtonActionPerformed(evt);
-            }
-        });
+        ship_CrewButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\CrewIcon.png")); // NOI18N
 
-        Ship_EditButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\Proyecto\\Gestion_Embarcaciones\\src\\main\\java\\org\\littleBoat\\resources\\EditIcon.png")); // NOI18N
+        ship_EditButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\EditIcon.png")); // NOI18N
 
-        Ship_DeleteButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\Proyecto\\Gestion_Embarcaciones\\src\\main\\java\\org\\littleBoat\\resources\\DeleteIcon.png")); // NOI18N
+        ship_DeleteButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\DeleteIcon.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -47,11 +45,11 @@ public class ShipTableButtons extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Ship_CrewButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ship_CrewButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Ship_EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ship_EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Ship_DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ship_DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -59,9 +57,9 @@ public class ShipTableButtons extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Ship_CrewButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ship_EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Ship_DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ship_CrewButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ship_EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ship_DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -76,8 +74,42 @@ public class ShipTableButtons extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.littleboat.View.CustomButton Ship_CrewButton;
-    private org.littleboat.View.CustomButton Ship_DeleteButton;
-    private org.littleboat.View.CustomButton Ship_EditButton;
+    private org.littleboat.View.CustomButton ship_CrewButton;
+    private org.littleboat.View.CustomButton ship_DeleteButton;
+    private org.littleboat.View.CustomButton ship_EditButton;
     // End of variables declaration//GEN-END:variables
+    
+    public void initEvent(TableActionEvent  event, int row){
+        ship_CrewButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                event.onCrewmateButton(row);
+            }
+        });
+        ship_EditButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                event.onEditButton(row);
+            }
+        });
+        ship_DeleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent){
+                event.onDeleteButton(row);
+            }
+        });
+    }
+    //public void setShip_CrewmateButtonListener(ActionListener listener) {
+      // ship_CrewButton.addActionListener(listener);
+    //}
+
+    //public void setShip_DeleteButtonListener(ActionListener listener) {
+    ////    ship_DeleteButton.addActionListener(listener);
+    //}
+
+   // public void setShip_EditButtonListener(ActionListener listener) {
+    //    ship_EditButton.addActionListener(listener);
+   // }
+
+    
 }

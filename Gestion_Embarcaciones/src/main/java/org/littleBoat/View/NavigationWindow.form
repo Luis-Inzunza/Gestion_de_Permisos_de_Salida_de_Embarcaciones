@@ -54,58 +54,56 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                  <Component id="searchIcon" min="-2" pref="27" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="mutablePanel" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="606" max="32767" attributes="0"/>
-                                  <Component id="prevBtn" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="nextBtn" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="searchBar" pref="105" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="filterBtn" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="shipListBtn" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="ownerListBtn" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="newElementBtn" max="32767" attributes="0"/>
-                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                          <Component id="certificadeHistory" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="mutablePanel" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="prevBtn" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="nextBtn" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <Component id="searchBar" min="-2" pref="166" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="searchIcon" min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="filterComboBox" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="shipListBtn" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="ownerListBtn" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="newElementBtn" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="certificadeHistory" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="filterBtn" alignment="3" max="32767" attributes="0"/>
-                          <Component id="searchBar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="ownerListBtn" alignment="3" max="32767" attributes="0"/>
-                          <Component id="shipListBtn" alignment="3" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="certificadeHistory" alignment="3" max="32767" attributes="0"/>
                           <Component id="newElementBtn" alignment="3" max="32767" attributes="0"/>
+                          <Component id="ownerListBtn" alignment="3" max="32767" attributes="0"/>
+                          <Component id="shipListBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="filterComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="searchIcon" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="searchBar" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchIcon" min="-2" pref="23" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="mutablePanel" min="-2" max="-2" attributes="0"/>
@@ -121,6 +119,15 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JButton" name="searchIcon">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f8" green="ea" red="aa" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/viewIcons/searchIcon.png"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="searchBar">
           <Properties>
@@ -128,14 +135,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchBarActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="filterBtn">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Filters"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="filterBtnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="shipListBtn">
@@ -186,6 +185,22 @@
             </DimensionLayout>
           </Layout>
         </Container>
+        <Component class="javax.swing.JComboBox" name="filterComboBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="5">
+                <StringItem index="0" value="Filtros"/>
+                <StringItem index="1" value="Listo para pescar"/>
+                <StringItem index="2" value="En pesca"/>
+                <StringItem index="3" value="Pronto a caducar"/>
+                <StringItem index="4" value="Caducados"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

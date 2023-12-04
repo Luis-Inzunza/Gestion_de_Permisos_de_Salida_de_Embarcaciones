@@ -4,9 +4,6 @@
  */
 package org.littleboat.View;
 
-import org.littleboat.View.EditCustomButton;
-import org.littleboat.View.InsertOwnerTableButtons;
-
 /**
  *
  * @author samux
@@ -18,8 +15,33 @@ public class ShipTable extends javax.swing.JPanel {
      */
     public ShipTable() {
         initComponents();
-        shipTable.getColumnModel().getColumn(3).setCellRenderer(new InsertOwnerTableButtons());
-        shipTable.getColumnModel().getColumn(3).setCellEditor(new EditCustomButton());  
+        ButtonsType shipButtons = ButtonsType.BUTTONS_SHIP;
+        //shipTable.getColumnModel().getColumn(3).setCellRenderer(new InsertOwnerTableButtons());
+        TableActionEvent actionEvent = new TableActionEvent() {
+
+            @Override
+            public void onCertificadeButton(int row) {
+               
+            }
+
+            @Override
+            public void onCrewmateButton(int row) {
+                System.out.println("crewmate en "+row);
+            }
+
+            @Override
+            public void onEditButton(int row) {
+                System.out.println("edit en "+ row);
+            }
+
+            @Override
+            public void onDeleteButton(int row) {
+                System.out.println("delete en "+ row);
+            }
+            
+        };
+        shipTable.getColumnModel().getColumn(3).setCellRenderer(new TableButtonsRenderer(shipButtons));
+        shipTable.getColumnModel().getColumn(3).setCellEditor(new EditTableButtons(shipButtons,actionEvent));  
     }
 
     /**
@@ -60,6 +82,7 @@ public class ShipTable extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        shipTable.setRowHeight(45);
         jScrollPane1.setViewportView(shipTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -79,4 +102,9 @@ public class ShipTable extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable shipTable;
     // End of variables declaration//GEN-END:variables
+    
+    public javax.swing.JTable getShipTable() {
+        return shipTable;
+    }
+
 }
