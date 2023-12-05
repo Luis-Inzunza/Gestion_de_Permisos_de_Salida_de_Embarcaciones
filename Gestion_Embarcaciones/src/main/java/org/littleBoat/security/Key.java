@@ -1,3 +1,4 @@
+package org.LittleBoat.security;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -5,14 +6,14 @@ import java.io.IOException;
 public class Key {
     private Security security;
 
-    public Key () {
-        security = new Security();
+    public Key() {
+        this.security = new Security();
     }
-    
-    private String readRecord (String pathFile) {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/files/password.txt"))) {
+
+    private String readRecord () {
+        String keyPath = "src/main/resources/files/password.txt";
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(keyPath))) {
             String key = bufferedReader.readLine();
-            System.out.println(key);
             bufferedReader.close();
             return key;
         } catch (IOException e) {
@@ -22,6 +23,6 @@ public class Key {
     }
 
     public String obtainKey () {
-        return security.desencriptar(readRecord("password.txt"));
+        return security.desencriptar(readRecord());
     }
 }

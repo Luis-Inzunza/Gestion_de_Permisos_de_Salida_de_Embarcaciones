@@ -1,3 +1,4 @@
+package org.LittleBoat.security;
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -29,10 +30,8 @@ public class Security{
         String clave = "";
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/files/clave.txt"))) {
             clave = bufferedReader.readLine();
-            System.out.println(clave);
-            bufferedReader.close();
         } catch (IOException e) {
-            
+            System.out.println("LLave no encontrada");
         }
         return clave;
     }
