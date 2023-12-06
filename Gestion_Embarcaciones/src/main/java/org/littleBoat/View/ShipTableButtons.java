@@ -33,11 +33,11 @@ public class ShipTableButtons extends javax.swing.JPanel {
         ship_EditButton = new org.littleboat.View.CustomButton();
         ship_DeleteButton = new org.littleboat.View.CustomButton();
 
-        ship_CrewButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\CrewIcon.png")); // NOI18N
+        ship_CrewButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/CrewIcon.png"))); // NOI18N
 
-        ship_EditButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\EditIcon.png")); // NOI18N
+        ship_EditButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/EditIcon.png"))); // NOI18N
 
-        ship_DeleteButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\DeleteIcon.png")); // NOI18N
+        ship_DeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/DeleteIcon.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

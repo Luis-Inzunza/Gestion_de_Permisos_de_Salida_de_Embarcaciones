@@ -32,9 +32,9 @@ public class CrewmatesTableButtons extends javax.swing.JPanel {
         crewmate_EditButton = new org.littleboat.View.CustomButton();
         crewmate_DeleteButton = new org.littleboat.View.CustomButton();
 
-        crewmate_EditButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\EditIcon.png")); // NOI18N
+        crewmate_EditButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/EditIcon.png"))); // NOI18N
 
-        crewmate_DeleteButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\DeleteIcon.png")); // NOI18N
+        crewmate_DeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/DeleteIcon.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

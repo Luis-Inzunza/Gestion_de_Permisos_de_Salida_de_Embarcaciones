@@ -45,21 +45,21 @@
     <Component class="org.littleboat.View.CustomButton" name="ship_CrewButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Desktop\Escuela\ConstruccionSoftware\repositorio\Gestion_Embarcaciones\src\main\resources\viewIcons\CrewIcon.png"/>
+          <Image iconType="3" name="/viewIcons/CrewIcon.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="org.littleboat.View.CustomButton" name="ship_EditButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Desktop\Escuela\ConstruccionSoftware\repositorio\Gestion_Embarcaciones\src\main\resources\viewIcons\EditIcon.png"/>
+          <Image iconType="3" name="/viewIcons/EditIcon.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="org.littleboat.View.CustomButton" name="ship_DeleteButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Desktop\Escuela\ConstruccionSoftware\repositorio\Gestion_Embarcaciones\src\main\resources\viewIcons\DeleteIcon.png"/>
+          <Image iconType="3" name="/viewIcons/DeleteIcon.png"/>
         </Property>
       </Properties>
     </Component>

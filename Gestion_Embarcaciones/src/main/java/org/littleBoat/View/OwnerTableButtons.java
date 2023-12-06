@@ -33,11 +33,11 @@ public class OwnerTableButtons extends javax.swing.JPanel {
         owner_EditButton = new org.littleboat.View.CustomButton();
         owner_DeleteButton = new org.littleboat.View.CustomButton();
 
-        owner_CertificadeButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\CertificadeIcon.png")); // NOI18N
+        owner_CertificadeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/CertificadeIcon.png"))); // NOI18N
 
-        owner_EditButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\EditIcon.png")); // NOI18N
+        owner_EditButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/EditIcon.png"))); // NOI18N
 
-        owner_DeleteButton.setIcon(new javax.swing.ImageIcon("C:\\Desktop\\Escuela\\ConstruccionSoftware\\repositorio\\Gestion_Embarcaciones\\src\\main\\resources\\viewIcons\\DeleteIcon.png")); // NOI18N
+        owner_DeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/DeleteIcon.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
