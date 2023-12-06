@@ -13,6 +13,7 @@ public class LoginController {
     private final String loginPassword;
     private NavWDController localNavigationController;
     private NavigationWindow localNavigationWindow;
+
     public LoginController(NavigationWindow in_NavigationWindow,Login in_Login){
         localNavigationWindow = in_NavigationWindow;
         localLogin = in_Login;
@@ -20,6 +21,7 @@ public class LoginController {
         this.key = new Key();
         loginPassword = key.obtainKey();
     }
+    
     private class accessBtnHandler implements ActionListener{
 
         @Override
