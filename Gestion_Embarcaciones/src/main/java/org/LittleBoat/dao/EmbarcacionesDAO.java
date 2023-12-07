@@ -35,7 +35,7 @@ public class EmbarcacionesDAO {
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = null;
         try {
-            String query = "INSERT INTO EMBARCACIONES (MATRICULA, F_SALIDA, F_REGRESO) VALUES (?, ?, ?)";
+            String query = "INSERT INTO EMBARCACIONES (MATRICULA, FSALIDA, FREGRESO) VALUES (?, ?, ?)";
             statement = connection.prepareStatement(query);
             statement.setInt(1, embarcacion.getMatricula());
             statement.setDate(2, java.sql.Date.valueOf(embarcacion.getFSalida()));
@@ -62,7 +62,7 @@ public class EmbarcacionesDAO {
      *         embarcaciones registradas.
      */
     public List<EmbarcacionesDTO> findAll() {
-        String query = "SELECT MATRICULA, F_SALIDA, F_REGRESO FROM EMBARCACIONES";
+        String query = "SELECT MATRICULA, FSALIDA, FREGRESO FROM EMBARCACIONES";
         List<EmbarcacionesDTO> embarcacionesList = new ArrayList<>();
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = null;
