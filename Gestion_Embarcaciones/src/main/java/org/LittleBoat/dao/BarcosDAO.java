@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class BarcosDAO extends PaginDao{
+public class BarcosDAO extends PaginDao {
     private final ConnectionManager connectionManager;
     public static final Logger LOGGER = Logger.getLogger(BarcosDAO.class.getName());
 
@@ -40,7 +40,7 @@ public class BarcosDAO extends PaginDao{
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = null;
 
-        try  {
+        try {
 
             String query = "INSERT INTO BARCOS (" +
                     "MATRICULA, NOMBARCO, CAPITANIAPUERTO, ESTADOBARCO, ARQUEOBRUTO_TONS, ARQUEONETO_TONS, " +
@@ -59,6 +59,7 @@ public class BarcosDAO extends PaginDao{
             statement.setInt(10, barco.getIdProp());
             return statement.executeUpdate();
         } catch (SQLException e) {
+            e.printStackTrace();
             return -1;
         } finally {
             this.connectionManager.closeConnection(connection);
@@ -81,7 +82,7 @@ public class BarcosDAO extends PaginDao{
         ArrayList<BarcosDTO> barcos = new ArrayList<>();
         Connection connection = connectionManager.getConnection();
         Statement statement = null;
-        try  {
+        try {
             statement = connection.createStatement();
             String query = "SELECT * FROM BARCOS";
             ResultSet resultSet = statement.executeQuery(query);
@@ -162,12 +163,13 @@ public class BarcosDAO extends PaginDao{
      * proporcionada.
      *
      * @param matricula La matrícula (ID) del Barco a eliminar.
-     * @return El número de filas afectadas en la base de datos, de no ser así devolverá -1.
+     * @return El número de filas afectadas en la base de datos, de no ser así
+     *         devolverá -1.
      */
     public int deleteByMatricula(int matricula) {
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = null;
-        try  {
+        try {
             String queryDeleteBarco = "DELETE FROM BARCOS WHERE MATRICULA = ?";
             statement = connection.prepareStatement(queryDeleteBarco);
             statement.setInt(1, matricula);
@@ -240,7 +242,7 @@ public class BarcosDAO extends PaginDao{
      * @return Una lista de objetos BarcosDTO correspondientes al idProp
      *         proporcionado.
      */
-    public List<BarcosDTO> findByIdProp (int idProp) {
+    public List<BarcosDTO> findByIdProp(int idProp) {
         List<BarcosDTO> barcosList = new ArrayList<>();
 
         Connection connection = connectionManager.getConnection();
@@ -280,17 +282,19 @@ public class BarcosDAO extends PaginDao{
 
         return barcosList;
     }
+
     /**
      * Elimina objetos BarcosDTO de la tabla BARCOS basados en el idProp
      * proporcionado.
      *
      * @param idProp El idProp para filtrar objetos BarcosDTO para la eliminación.
-     * @return El número de filas afectadas en la base de datos, -1 si no se pudo realizar la acción.
+     * @return El número de filas afectadas en la base de datos, -1 si no se pudo
+     *         realizar la acción.
      */
-    public int deleteByIdProp (int idProp) {
+    public int deleteByIdProp(int idProp) {
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = null;
-        try  {
+        try {
             String query = "DELETE FROM BARCOS WHERE IDPROP = ?";
             statement = connection.prepareStatement(query);
             statement.setInt(1, idProp);
@@ -311,15 +315,17 @@ public class BarcosDAO extends PaginDao{
 
     /**
      * Clase implementada para poder paginar registros de la tabla BARCOS
+     * 
      * @param page el número de pagina para buscar los registros.
-     * @return una lista de los registro de la tabla BARCOS según la pagina proporcionada.
-     * */
+     * @return una lista de los registro de la tabla BARCOS según la pagina
+     *         proporcionada.
+     */
     @Override
     public List<BarcosDTO> findPage(int page) {
         List<BarcosDTO> barcos = new ArrayList<>();
         Connection connection = this.connectionManager.getConnection();
         PreparedStatement statement = null;
-        try  {
+        try {
 
             String query = "SELECT * FROM BARCOS LIMIT ?  OFFSET  ?";
             statement = connection.prepareStatement(query);
@@ -327,7 +333,7 @@ public class BarcosDAO extends PaginDao{
             statement.setInt(2, calculateOffset(page));
             ResultSet resultSet = statement.executeQuery();
 
-            while ( resultSet.next() ) {
+            while (resultSet.next()) {
                 BarcosDTO barco = new BarcosDTO(
                         resultSet.getInt("MATRICULA"),
                         resultSet.getString("NOMBARCO"),
@@ -342,7 +348,7 @@ public class BarcosDAO extends PaginDao{
                 barcos.add(barco);
             }
 
-        } catch ( SQLException e) {
+        } catch (SQLException e) {
             LOGGER.log(Level.WARNING, e.getSQLState());
         } finally {
             this.connectionManager.closeConnection(connection);
@@ -358,19 +364,20 @@ public class BarcosDAO extends PaginDao{
 
     /**
      * Clase implementada para contar los registros de la tabla BARCOS.
+     * 
      * @return el número de registros detro de una tabla.
-     * */
+     */
     @Override
     protected int countRecords() {
         Connection connection = this.connectionManager.getConnection();
         Statement statement = null;
-        try  {
+        try {
             String query = "SELECT COUNT(*) FROM BARCOS";
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             resultSet.next();
             return resultSet.getInt(1);
-        } catch ( SQLException e) {
+        } catch (SQLException e) {
             LOGGER.log(Level.WARNING, e.getSQLState());
             return -1;
         } finally {

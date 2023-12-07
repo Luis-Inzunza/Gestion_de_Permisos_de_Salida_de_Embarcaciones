@@ -2,12 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
 package org.LittleBoat.View;
+
+import java.awt.event.ActionListener;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  *
  * @author usuario
  */
+@Getter
+@Setter
 public class NuevoPropetario extends javax.swing.JFrame {
 
     /**
@@ -239,19 +247,15 @@ public class NuevoPropetario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CancelBtnActionPerformed
-        this.dispose();
+
     }// GEN-LAST:event_CancelBtnActionPerformed
 
     private void ResetBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ResetBtnActionPerformed
-        IdText.setText("");
-        ShipNameText.setText("");
-        PortNameText.setText("");
+
     }// GEN-LAST:event_ResetBtnActionPerformed
 
     private void RegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RegisterBtnActionPerformed
-        String matricula = IdText.getText();
-        String nombreBarco = ShipNameText.getText();
-        String nombreCapitania = PortNameText.getText();
+
     }// GEN-LAST:event_RegisterBtnActionPerformed
 
     private void IdTextActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_IdTextActionPerformed
@@ -269,6 +273,18 @@ public class NuevoPropetario extends javax.swing.JFrame {
     private void PortNameText1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_PortNameText1ActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_PortNameText1ActionPerformed
+
+    public void anadirListenerCancelar(ActionListener listener) {
+        this.CancelBtn.addActionListener(listener);
+    }
+
+    public void anadirListenerlimpiar(ActionListener listener) {
+        this.ResetBtn.addActionListener(listener);
+    }
+
+    public void anadirListenerRegistrar(ActionListener listener) {
+        this.RegisterBtn.addActionListener(listener);
+    }
 
     /**
      * @param args the command line arguments

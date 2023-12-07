@@ -14,22 +14,24 @@ public class LoginController {
     private NavWDController localNavigationController;
     private NavigationWindow localNavigationWindow;
 
-    public LoginController(NavigationWindow in_NavigationWindow,Login in_Login){
+    public LoginController(NavigationWindow in_NavigationWindow, Login in_Login) {
         localNavigationWindow = in_NavigationWindow;
         localLogin = in_Login;
         localLogin.setAccessBtnListener(new accessBtnHandler());
         this.key = new Key();
         loginPassword = key.obtainKey();
+        localNavigationController = new NavWDController(localNavigationWindow);
+        localNavigationWindow.setVisible(true);
     }
-    
-    private class accessBtnHandler implements ActionListener{
+
+    private class accessBtnHandler implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
             String out_password = localLogin.getAccessTextFieldText();
-            if(out_password.equals(loginPassword)){
-               //localNavigationController = new NavWDController(localNavigationWindow);
-                localNavigationWindow.setVisible(true);  
+            if (out_password.equals(loginPassword)) {
+                localNavigationController = new NavWDController(localNavigationWindow);
+                localNavigationWindow.setVisible(true);
             }
         }
 

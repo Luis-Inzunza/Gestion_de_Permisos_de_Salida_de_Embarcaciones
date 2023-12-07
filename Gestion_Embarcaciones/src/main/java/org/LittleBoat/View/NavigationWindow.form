@@ -53,13 +53,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="prevBtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="nextBtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -67,7 +60,7 @@
                       <Group type="102" attributes="0">
                           <Component id="searchBar" min="-2" pref="166" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="searchIcon" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="searchButton" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="filterComboBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -106,7 +99,7 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="searchBar" min="-2" max="-2" attributes="0"/>
-                              <Component id="searchIcon" min="-2" pref="23" max="-2" attributes="0"/>
+                              <Component id="searchButton" min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -127,18 +120,13 @@
                           <Component id="deleteButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="nextBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="prevBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="searchIcon">
+        <Component class="javax.swing.JButton" name="searchButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f8" green="ea" red="aa" type="rgb"/>
@@ -178,16 +166,6 @@
         <Component class="javax.swing.JButton" name="certificadeHistory">
           <Properties>
             <Property name="label" type="java.lang.String" value="History"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="prevBtn">
-          <Properties>
-            <Property name="label" type="java.lang.String" value="Previous"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="nextBtn">
-          <Properties>
-            <Property name="label" type="java.lang.String" value="Next"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="mutablePanel">

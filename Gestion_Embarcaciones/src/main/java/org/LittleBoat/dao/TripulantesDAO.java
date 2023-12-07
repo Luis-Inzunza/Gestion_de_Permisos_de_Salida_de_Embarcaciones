@@ -99,6 +99,28 @@ public class TripulantesDAO {
         }
     }
 
+    public int deleteByCurp(String curp) {
+        Connection connection = connectionManager.getConnection();
+        PreparedStatement statement = null;
+        try {
+            String query = "DELETE FROM TRIPULANTES WHERE CURP = ?";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, curp); // Se usa setString en lugar de setInt
+            return statement.executeUpdate();
+        } catch (SQLException e) {
+            LOGGER.log(Level.WARNING, e.getSQLState());
+            return -1;
+        } finally {
+            this.connectionManager.closeConnection(connection);
+            try {
+                if (statement != null)
+                    statement.close();
+            } catch (SQLException e) {
+                LOGGER.log(Level.WARNING, e.getSQLState());
+            }
+        }
+    }
+
     /**
      * Guarda un objeto TripulantesDTO en la tabla TRIPULANTES.
      *

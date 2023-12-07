@@ -6,10 +6,15 @@ package org.LittleBoat.View;
 
 import java.awt.event.ActionListener;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  *
  * @author usuario
  */
+@Getter
+@Setter
 public class NuevoBarco extends javax.swing.JFrame {
 
     /**
@@ -254,21 +259,15 @@ public class NuevoBarco extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CancelBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CancelBtnActionPerformed
-        this.dispose();
+
     }// GEN-LAST:event_CancelBtnActionPerformed
 
     private void ResetBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ResetBtnActionPerformed
-        IdText.setText("");
-        ShipNameText.setText("");
-        PortNameText.setText("");
-        OwnerComboBox.setSelectedIndex(0);
+
     }// GEN-LAST:event_ResetBtnActionPerformed
 
     private void NextBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_NextBtnActionPerformed
-        String matricula = IdText.getText();
-        String nombreBarco = ShipNameText.getText();
-        String nombreCapitania = PortNameText.getText();
-        String propietario = OwnerComboBox.getSelectedItem().toString();
+
     }// GEN-LAST:event_NextBtnActionPerformed
 
     private void IdTextActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_IdTextActionPerformed
@@ -291,8 +290,20 @@ public class NuevoBarco extends javax.swing.JFrame {
         // TODO add your handling code here:
     }// GEN-LAST:event_NewOwnerBtnActionPerformed
 
-    public void setCancelButtonListener(ActionListener listener) {
-        CancelBtn.addActionListener(listener);
+    public void anadirListenerCancelar(ActionListener listener) {
+        this.CancelBtn.addActionListener(listener);
+    }
+
+    public void anadirListenerlimpiar(ActionListener listener) {
+        this.ResetBtn.addActionListener(listener);
+    }
+
+    public void anadirListenerRegistrar(ActionListener listener) {
+        this.NewOwnerBtn.addActionListener(listener);
+    }
+
+    public void anadirListenerSiguiente(ActionListener listener) {
+        this.getNextBtn().addActionListener(listener);
     }
 
     /**

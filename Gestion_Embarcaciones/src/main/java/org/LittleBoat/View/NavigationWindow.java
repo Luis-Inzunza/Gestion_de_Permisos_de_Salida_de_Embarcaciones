@@ -42,8 +42,6 @@ public class NavigationWindow extends javax.swing.JFrame {
         ownerListBtn = new javax.swing.JButton();
         newElementBtn = new javax.swing.JButton();
         certificadeHistory = new javax.swing.JButton();
-        prevBtn = new javax.swing.JButton();
-        nextBtn = new javax.swing.JButton();
         mutablePanel = new javax.swing.JPanel();
         filterComboBox = new javax.swing.JComboBox<>();
         crewmatesButton = new javax.swing.JButton();
@@ -80,10 +78,6 @@ public class NavigationWindow extends javax.swing.JFrame {
 
         certificadeHistory.setLabel("History");
 
-        prevBtn.setLabel("Previous");
-
-        nextBtn.setLabel("Next");
-
         javax.swing.GroupLayout mutablePanelLayout = new javax.swing.GroupLayout(mutablePanel);
         mutablePanel.setLayout(mutablePanelLayout);
         mutablePanelLayout.setHorizontalGroup(
@@ -114,12 +108,6 @@ public class NavigationWindow extends javax.swing.JFrame {
         navPanel.setLayout(navPanelLayout);
         navPanelLayout.setHorizontalGroup(
             navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(navPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(prevBtn)
-                .addGap(18, 18, 18)
-                .addComponent(nextBtn)
-                .addGap(36, 36, 36))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navPanelLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -175,11 +163,7 @@ public class NavigationWindow extends javax.swing.JFrame {
                         .addComponent(editButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deleteButton)))
-                .addGap(12, 12, 12)
-                .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nextBtn)
-                    .addComponent(prevBtn))
-                .addGap(23, 23, 23))
+                .addGap(58, 58, 58))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -260,9 +244,7 @@ public class NavigationWindow extends javax.swing.JFrame {
     private javax.swing.JPanel mutablePanel;
     private javax.swing.JPanel navPanel;
     private javax.swing.JButton newElementBtn;
-    private javax.swing.JButton nextBtn;
     private javax.swing.JButton ownerListBtn;
-    private javax.swing.JButton prevBtn;
     private javax.swing.JTextField searchBar;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton shipListBtn;
@@ -276,16 +258,8 @@ public class NavigationWindow extends javax.swing.JFrame {
         newElementBtn.addActionListener(listener);
     }
 
-    public void setNextButtonListener(ActionListener listener) {
-        nextBtn.addActionListener(listener);
-    }
-
     public void setOwnerListButtonListener(ActionListener listener) {
         ownerListBtn.addActionListener(listener);
-    }
-
-    public void setPrevButtonListener(ActionListener listener) {
-        prevBtn.addActionListener(listener);
     }
 
     public void setSearchButtonListener(ActionListener listener) {

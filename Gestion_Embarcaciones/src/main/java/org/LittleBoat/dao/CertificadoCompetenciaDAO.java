@@ -186,4 +186,33 @@ public class CertificadoCompetenciaDAO {
         return null;
     }
 
+    public CertCompetenciaDTO findByCurp(String curp) {
+        String query = "SELECT * FROM CERT_COMPETENCIA WHERE CURP = ?";
+        Connection connection = connectionManager.getConnection();
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(query);
+            statement.setString(1, curp);
+            ResultSet resultSet = statement.executeQuery();
+            CertCompetenciaDTO certificado = new CertCompetenciaDTO();
+            if (resultSet.next()) {
+                certificado.setFolio(resultSet.getString("FOLIO"));
+                certificado.setCurp(resultSet.getString("CURP"));
+                certificado.setFExpiracion(resultSet.getDate("FVIGENCIACC").toLocalDate());
+                certificado.setCategoria(resultSet.getString("CATEGORIA"));
+            }
+            return certificado;
+        } catch (SQLException e) {
+            LOGGER.log(Level.WARNING, e.getSQLState());
+            this.connectionManager.closeConnection(connection);
+            try {
+                if (statement != null)
+                    statement.close();
+            } catch (SQLException exception) {
+                LOGGER.log(Level.WARNING, exception.getSQLState());
+            }
+        }
+        return null;
+    }
+
 }

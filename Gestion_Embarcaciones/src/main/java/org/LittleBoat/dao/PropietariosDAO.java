@@ -4,12 +4,12 @@
  * Incluye métodos para guardar, buscar por ID de propietario, buscar por nombre, y recuperar todos los propietarios.
  *
  * @version 1.0
- */package org.LittleBoat.dao;
+ */
+package org.LittleBoat.dao;
 
 import org.LittleBoat.connection.ConnectionManager;
 
 import org.LittleBoat.dto.PropietariosDTO;
-
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -17,9 +17,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class PropietariosDAO extends PaginDao{
+public class PropietariosDAO extends PaginDao {
     private ConnectionManager connectionManager;
     private static final Logger LOGGER = Logger.getLogger(PropietariosDAO.class.getName());
+
     public PropietariosDAO(ConnectionManager connection) {
 
         this.connectionManager = connection;
@@ -27,17 +28,20 @@ public class PropietariosDAO extends PaginDao{
         setTotalRecords(countRecords());
     }
 
-
     /**
      * Guarda el objeto PropietariosDTO proporcionado en la tabla PROPIETARIOS de la
      * base de datos.
      *
      * @param propietario El objeto PropietariosDTO que se va a guardar.
-     * @return 1 si se pudo guardar el registro, -1 si hubo algún problema con la base de datos.
+     * @return 1 si se pudo guardar el registro, -1 si hubo algún problema con la
+     *         base de datos.
      */
-    public int save(PropietariosDTO propietario){
+    public int save(PropietariosDTO propietario) {
+
         Connection connection = this.connectionManager.getConnection();
+
         PreparedStatement statement = null;
+
         try {
             String query = "INSERT INTO PROPIETARIOS (NOMPROP, APSPROP, TELEFONO, CORREO, ESTADOPROP) VALUES (?, ?, ?, ?, ?);";
             statement = connection.prepareStatement(query);
@@ -46,8 +50,9 @@ public class PropietariosDAO extends PaginDao{
             statement.setString(3, propietario.getTelefono());
             statement.setString(4, propietario.getCorreo());
             statement.setBoolean(5, propietario.getEstadoProp());
-
-            return statement.executeUpdate();
+            int result = statement.executeUpdate();
+            System.out.println(result);
+            return result;
         } catch (SQLException e) {
             LOGGER.log(Level.WARNING, e.getSQLState());
             return -1;
@@ -69,10 +74,10 @@ public class PropietariosDAO extends PaginDao{
      * @param matricula El objeto PropietariosDTO que se va a guardar.
      * @return la entidad unica en la base de datos o nulo si no la encontro.
      */
-    public PropietariosDTO findByIdProp(int matricula){
+    public PropietariosDTO findByIdProp(int matricula) {
         Connection connection = this.connectionManager.getConnection();
         PreparedStatement statement = null;
-        try  {
+        try {
             String query = "SELECT * FROM PROPIETARIOS WHERE IdProp = ?";
             statement = connection.prepareStatement(query);
             statement.setInt(1, matricula);
@@ -80,18 +85,19 @@ public class PropietariosDAO extends PaginDao{
 
             if (resultSet.next()) {
                 PropietariosDTO propietario = new PropietariosDTO(
-                        resultSet.getInt("IdProp"),  // Asegúrate de que "IdProp" sea el nombre correcto
+                        resultSet.getInt("IdProp"), // Asegúrate de que "IdProp" sea el nombre correcto
                         resultSet.getString("NomProp"),
                         resultSet.getString("ApsProp"),
                         resultSet.getString("Telefono"),
                         resultSet.getString("Correo"),
-                        resultSet.getBoolean("EstadoProp")
-                );
+                        resultSet.getBoolean("EstadoProp"));
 
                 return propietario;
             }
-        } catch ( SQLException e) {
+        } catch (SQLException e) {
             LOGGER.log(Level.WARNING, e.getSQLState());
+            e.printStackTrace();
+            System.out.println("test3");
         } finally {
             this.connectionManager.closeConnection(connection);
             try {
@@ -99,6 +105,8 @@ public class PropietariosDAO extends PaginDao{
                 statement.close();
             } catch (SQLException e) {
                 LOGGER.log(Level.WARNING, e.getSQLState());
+                e.printStackTrace();
+                System.out.println("test2");
             }
         }
         return null;
@@ -112,7 +120,7 @@ public class PropietariosDAO extends PaginDao{
      * @return Un objeto PropietariosDTO correspondiente al nombre proporcionado, o
      *         null si no se encuentra.
      */
-    public PropietariosDTO findByName (String name) {
+    public PropietariosDTO findByName(String name) {
         Connection connection = this.connectionManager.getConnection();
         PreparedStatement statement = null;
         try {
@@ -128,9 +136,8 @@ public class PropietariosDAO extends PaginDao{
                     resultSet.getString("APSPROP"),
                     resultSet.getString("TELEFONO"),
                     resultSet.getString("CORREO"),
-                    resultSet.getBoolean("ESTADOPROP")
-            );
-        } catch ( SQLException e) {
+                    resultSet.getBoolean("ESTADOPROP"));
+        } catch (SQLException e) {
             LOGGER.log(Level.WARNING, e.getSQLState());
         } finally {
             this.connectionManager.closeConnection(connection);
@@ -150,28 +157,27 @@ public class PropietariosDAO extends PaginDao{
      *
      * @return Una lista de objetos PropietariosDTO.
      */
-    public List<PropietariosDTO> findAll(){
+    public ArrayList<PropietariosDTO> findAll() {
         ArrayList<PropietariosDTO> propietarios = new ArrayList<>();
         Connection connection = this.connectionManager.getConnection();
         Statement statement = null;
-        try  {
+        try {
             statement = connection.createStatement();
             String query = "SELECT * FROM PROPIETARIOS";
             ResultSet resultSet = statement.executeQuery(query);
 
-            while ( resultSet.next() ) {
+            while (resultSet.next()) {
                 PropietariosDTO propietario = new PropietariosDTO(
                         resultSet.getInt("IDPROP"),
                         resultSet.getString("NOMPROP"),
                         resultSet.getString("APSPROP"),
                         resultSet.getString("TELEFONO"),
                         resultSet.getString("CORREO"),
-                        resultSet.getBoolean("ESTADOPROP")
-                );
+                        resultSet.getBoolean("ESTADOPROP"));
                 propietarios.add(propietario);
             }
 
-        } catch ( SQLException e) {
+        } catch (SQLException e) {
             LOGGER.log(Level.WARNING, e.getSQLState());
         } finally {
             this.connectionManager.closeConnection(connection);
@@ -184,17 +190,19 @@ public class PropietariosDAO extends PaginDao{
         }
         return propietarios;
     }
+
     /**
      * Actuliza los valores de una entidad segun su clave primaria,
      * la cual se especifica en la misma instancia de propietario
+     * 
      * @param propietario El objeto PropietariosDTO que se va a guardar.
      * @return 1 si la actualización de los datos fue exitosa,
-     * -1 si hubo un problema en la ejecución de la sentencia.
+     *         -1 si hubo un problema en la ejecución de la sentencia.
      */
     public int update(PropietariosDTO propietario) {
         Connection connection = this.connectionManager.getConnection();
         PreparedStatement statement = null;
-        try  {
+        try {
             String query = "UPDATE PROPIETARIOS SET NOMPROP=?, APSPROP=?, TELEFONO=?, CORREO=?, ESTADOPROP=? WHERE IdProp=?";
             statement = connection.prepareStatement(query);
             statement.setString(1, propietario.getNomProp());
@@ -220,16 +228,18 @@ public class PropietariosDAO extends PaginDao{
             }
         }
     }
+
     /**
      * Borra una única entidad en la base de datos según su llave primaria
+     * 
      * @param idProp El objeto PropietariosDTO que se va a guardar.
      * @return 1 si la actualización de los datos fue exitosa,
-     * -1 si hubo un problema en la ejecución de la sentencia.
+     *         -1 si hubo un problema en la ejecución de la sentencia.
      */
     public int deleteByIdProp(int idProp) {
         Connection connection = this.connectionManager.getConnection();
         PreparedStatement statement = null;
-        try  {
+        try {
             String query = "DELETE FROM PROPIETARIOS WHERE IdProp=?";
             statement = connection.prepareStatement(query);
             statement.setInt(1, idProp);
@@ -251,15 +261,17 @@ public class PropietariosDAO extends PaginDao{
 
     /**
      * Clase implementada para poder paginar registros de la tabla PROPIETARIOS.
+     * 
      * @param page el número de pagina para buscar los registros.
-     * @return una lista de los registro de la tabla PROPIETARIOS según la pagina proporcionada.
-     * */
+     * @return una lista de los registro de la tabla PROPIETARIOS según la pagina
+     *         proporcionada.
+     */
     @Override
     public List<PropietariosDTO> findPage(int page) {
         List<PropietariosDTO> propietarios = new ArrayList<>();
         Connection connection = this.connectionManager.getConnection();
         PreparedStatement statement = null;
-        try  {
+        try {
 
             String query = "SELECT * FROM PROPIETARIOS LIMIT ?  OFFSET  ?";
             statement = connection.prepareStatement(query);
@@ -267,19 +279,18 @@ public class PropietariosDAO extends PaginDao{
             statement.setInt(2, calculateOffset(page));
             ResultSet resultSet = statement.executeQuery();
 
-            while ( resultSet.next() ) {
+            while (resultSet.next()) {
                 PropietariosDTO propietario = new PropietariosDTO(
                         resultSet.getInt("IDPROP"),
                         resultSet.getString("NOMPROP"),
                         resultSet.getString("APSPROP"),
                         resultSet.getString("TELEFONO"),
                         resultSet.getString("CORREO"),
-                        resultSet.getBoolean("ESTADOPROP")
-                );
+                        resultSet.getBoolean("ESTADOPROP"));
                 propietarios.add(propietario);
             }
 
-        } catch ( SQLException e) {
+        } catch (SQLException e) {
             LOGGER.log(Level.WARNING, e.getSQLState());
         } finally {
             this.connectionManager.closeConnection(connection);
@@ -295,19 +306,20 @@ public class PropietariosDAO extends PaginDao{
 
     /**
      * Clase implementada para contar los registros de la tabla PROPIETARIOS.
+     * 
      * @return el número de registros detro de una tabla.
-     * */
+     */
     @Override
     protected int countRecords() {
         Connection connection = this.connectionManager.getConnection();
         Statement statement = null;
-        try  {
+        try {
             String query = "SELECT COUNT(*) FROM PROPIETARIOS";
             statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             resultSet.next();
             return resultSet.getInt(1);
-        } catch ( SQLException e) {
+        } catch (SQLException e) {
             LOGGER.log(Level.WARNING, e.getSQLState());
             return -1;
         } finally {
