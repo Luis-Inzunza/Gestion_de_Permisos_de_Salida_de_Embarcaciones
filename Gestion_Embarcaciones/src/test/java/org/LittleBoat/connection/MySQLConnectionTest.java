@@ -22,8 +22,6 @@ public class MySQLConnectionTest {
         Assertions.assertTrue(connectionOne == connectionTwo);
     }
 
-
-
     @Test
     void disconnectTest () throws SQLException {
         MySqlConnection connectionManager = MySqlConnection.getInstance();
