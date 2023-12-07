@@ -31,15 +31,15 @@ public class Security{
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main/resources/files/clave.txt"))) {
             clave = bufferedReader.readLine();
         } catch (IOException e) {
-            System.out.println("LLave no encontrada");
+            System.out.println("Llave no encontrada");
         }
         return clave;
     }
 
-    public String encriptar(String datos) {
+    public String encrypt(String datos) {
         String claveSecreta = this.secretKeyUs;
         try {
-            SecretKeySpec secretKey = this.crearClave(claveSecreta);
+            SecretKeySpec secretKey = this.createKey(claveSecreta);
 
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
@@ -57,7 +57,7 @@ public class Security{
         return null;
     }
 
-    private SecretKeySpec crearClave(String clave) {
+    private SecretKeySpec createKey(String clave) {
         try {
             byte[] claveEncriptacion = clave.getBytes("UTF-8");
 
@@ -76,19 +76,19 @@ public class Security{
         return null;
     }
 
-    public String desencriptar(String datosEncriptados) {
-        String claveSecreta = this.secretKeyUs;
+    public String decrypt(String datosEncriptados) {
+        String secretKeyString = this.secretKeyUs;
         try {
-            SecretKeySpec secretKey = this.crearClave(claveSecreta);
+            SecretKeySpec secretKey = this.createKey(secretKeyString);
 
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
 
-            byte[] bytesEncriptados = Base64.getDecoder().decode(datosEncriptados);
-            byte[] datosDesencriptados = cipher.doFinal(bytesEncriptados);
-            String datos = new String(datosDesencriptados);
+            byte[] encryptedBytes = Base64.getDecoder().decode(datosEncriptados);
+            byte[] decryptedData = cipher.doFinal(encryptedBytes);
+            String data = new String(decryptedData);
 
-            return datos;
+            return data;
         } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | IllegalBlockSizeException |
                  BadPaddingException ex) {
             Logger.getLogger(Security.class.getName()).log(Level.SEVERE, null, ex);

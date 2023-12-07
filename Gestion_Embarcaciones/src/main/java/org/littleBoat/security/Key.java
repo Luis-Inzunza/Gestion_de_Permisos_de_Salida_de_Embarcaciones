@@ -23,6 +23,6 @@ public class Key {
     }
 
     public String obtainKey () {
-        return security.desencriptar(readRecord());
+        return security.decrypt(readRecord());
     }
 }
