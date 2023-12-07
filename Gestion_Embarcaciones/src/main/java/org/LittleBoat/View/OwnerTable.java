@@ -5,49 +5,16 @@
 package org.LittleBoat.View;
 
 import javax.swing.JTable;
-
 /**
  *
  * @author samux
  */
 public class OwnerTable extends javax.swing.JPanel {
-
     /**
      * Creates new form OwnerList
      */
     public OwnerTable() {
-        initComponents();
-        ButtonsType OwnerButtons = ButtonsType.BUTTONS_OWNER;
-        TableActionEvent actionEvent = new TableActionEvent() {
-
-            @Override
-            public void onCertificadeButton(int row) {
-                System.out.println("certificade en "+ row);
-                NuevaEmbarcacion newEmbarcation = new NuevaEmbarcacion();
-                newEmbarcation.setVisible(true);
-            }
-
-            @Override
-            public void onCrewmateButton(int row) {
-            }
-
-            @Override
-            public void onEditButton(int row) {
-                System.out.println("edit en "+ row);
-                NuevoPropetario newOwner = new NuevoPropetario();
-                newOwner.setVisible(true);
-            }
-
-            @Override
-            public void onDeleteButton(int row) {
-                System.out.println("delete en "+ row);
-                System.out.println("status de visibilidad setearlo a 0");
-            }
-            
-        };
-        //ownerTable.getColumnModel().getColumn(3).setCellRenderer(new InsertOwnerTableButtons());
-        ownerTable.getColumnModel().getColumn(3).setCellRenderer(new TableButtonsRenderer(OwnerButtons));
-        ownerTable.getColumnModel().getColumn(3).setCellEditor(new EditTableButtons(OwnerButtons,actionEvent));   
+      initComponents();
     }
 
     /**
@@ -64,17 +31,24 @@ public class OwnerTable extends javax.swing.JPanel {
 
         ownerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+<<<<<<< HEAD
 
+=======
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+>>>>>>> 6ff481d0ae4fb19048c40ae260bfc413104d351d
             },
             new String [] {
-                "Full Name", "Phone Number", "Email", ""
+                "Full Name", "Phone Number", "Email"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -93,7 +67,7 @@ public class OwnerTable extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,4 +84,5 @@ public class OwnerTable extends javax.swing.JPanel {
     public JTable getOwnerTable() {
         return ownerTable;
     }
+
 }
