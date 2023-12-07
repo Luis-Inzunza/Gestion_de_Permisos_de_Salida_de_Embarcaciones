@@ -46,12 +46,10 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
         CancelBtn = new javax.swing.JButton();
         TitleNewShip = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(170, 234, 248));
 
-        RegisterBtn.setBackground(new java.awt.Color(255, 255, 255));
-        RegisterBtn.setForeground(new java.awt.Color(0, 0, 0));
         RegisterBtn.setText("Registrar");
         RegisterBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,15 +61,11 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
         ShipLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ShipLabel.setForeground(new java.awt.Color(0, 0, 0));
         ShipLabel.setText("Barco :");
 
         TypeFishingLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        TypeFishingLabel.setForeground(new java.awt.Color(0, 0, 0));
         TypeFishingLabel.setText("Tipo de Pesca :");
 
-        TypeFishingText.setBackground(new java.awt.Color(255, 255, 255));
-        TypeFishingText.setForeground(new java.awt.Color(0, 0, 0));
         TypeFishingText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TypeFishingTextActionPerformed(evt);
@@ -79,11 +73,8 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
         });
 
         OutDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        OutDateLabel.setForeground(new java.awt.Color(0, 0, 0));
         OutDateLabel.setText("Fecha de Salida :");
 
-        OutDateText.setBackground(new java.awt.Color(255, 255, 255));
-        OutDateText.setForeground(new java.awt.Color(0, 0, 0));
         OutDateText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OutDateTextActionPerformed(evt);
@@ -91,11 +82,8 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
         });
 
         ReturDateLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        ReturDateLabel.setForeground(new java.awt.Color(0, 0, 0));
         ReturDateLabel.setText("Fecha de Regreso :");
 
-        ReturnDateText.setBackground(new java.awt.Color(255, 255, 255));
-        ReturnDateText.setForeground(new java.awt.Color(0, 0, 0));
         ReturnDateText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReturnDateTextActionPerformed(evt);
@@ -108,8 +96,6 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
         DateFormatLabel1.setForeground(new java.awt.Color(50, 50, 50));
         DateFormatLabel1.setText("dd/mm/aaaa");
 
-        NewShipBtn.setBackground(new java.awt.Color(255, 255, 255));
-        NewShipBtn.setForeground(new java.awt.Color(0, 0, 0));
         NewShipBtn.setText("Nuevo Barco");
         NewShipBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,8 +103,6 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
             }
         });
 
-        AnotherTypeBtn.setBackground(new java.awt.Color(255, 255, 255));
-        AnotherTypeBtn.setForeground(new java.awt.Color(0, 0, 0));
         AnotherTypeBtn.setText("+");
         AnotherTypeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,8 +110,6 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
             }
         });
 
-        ShipComboBox.setBackground(new java.awt.Color(255, 255, 255));
-        ShipComboBox.setForeground(new java.awt.Color(0, 0, 0));
         ShipComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ShipComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,8 +179,6 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
-        ResetBtn.setBackground(new java.awt.Color(255, 255, 255));
-        ResetBtn.setForeground(new java.awt.Color(0, 0, 0));
         ResetBtn.setText("Limpiar");
         ResetBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,8 +186,6 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
             }
         });
 
-        CancelBtn.setBackground(new java.awt.Color(255, 255, 255));
-        CancelBtn.setForeground(new java.awt.Color(0, 0, 0));
         CancelBtn.setText("Cancelar");
         CancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +194,6 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
         });
 
         TitleNewShip.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        TitleNewShip.setForeground(new java.awt.Color(0, 0, 0));
         TitleNewShip.setText("Nueva Embarcación");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -243,7 +220,7 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(TitleNewShip)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -251,21 +228,18 @@ public class NuevaEmbarcacion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CancelBtn)
                     .addComponent(ResetBtn)
-                    .addComponent(RegisterBtn))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(RegisterBtn)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

@@ -14,16 +14,18 @@ import org.LittleBoat.View.OwnerTable;
 import org.LittleBoat.View.ShipTable;
 
 public class NavWDController{
-
+    
     private final NavigationWindow navigationWindow;
     private final OwnerTable localOwnerList;
     private final ShipTable localShipList;
     private JPanel localMutablePanel;
+    private TableButtonsController tableButtonsController;
     private JTextField searchBar; //lo usare cuando le de al boton de busqueda
 
     public NavWDController(NavigationWindow inNavigationWindow/*,TableButtonsController in_TableButtonsController*/) {
         navigationWindow = inNavigationWindow;
         localMutablePanel = navigationWindow.getMutablePanel();
+        tableButtonsController = new TableButtonsController(inNavigationWindow);
         navigationWindow.setSearchButtonListener(new SearchButtonHandler());
         navigationWindow.setNewElementButtonListener(new NewElementButtonHandler());
         navigationWindow.setShipListButtonListener(new ShipListButtonHandler());
@@ -33,10 +35,6 @@ public class NavWDController{
         navigationWindow.setNextButtonListener(new NextButtonHandler());
         navigationWindow.setCertificadeHistoryListener(new CertificateHistoryButtonHandler());
         navigationWindow.setFilterComboBoxListener(new FilterButtonHandler());
-        navigationWindow.setCertificadesButtonListener(new certificadesButtonHandler());
-        navigationWindow.setCrewmatesButtonListener(new crewmatesButtonHandler());
-        navigationWindow.setEditButtonListener(new editButtonHandler());
-        navigationWindow.setDeleteButtonListener(new deleteButtonHandler());
         localOwnerList = new OwnerTable();
         localShipList = new ShipTable();
         loadOwnerView();
@@ -131,50 +129,6 @@ public class NavWDController{
             System.out.println("desplegar la ventana de historial de embarcaciones");
             Historial historial = new Historial();
             historial.setVisible(true);
-        }
-    }
-    private class certificadesButtonHandler implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {  
-            System.out.println("abro ventana de certificados de embarcacion");
-        }
-    }
-    private class crewmatesButtonHandler implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {  
-            System.out.println("abro ventana de tripulantes");
-        }
-    }
-    private class editButtonHandler implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if(localMutablePanel.getComponent(0) instanceof OwnerTable){
-                
-                System.out.println("Edito datos de OwnerTable");
-            }else if (localMutablePanel.getComponent(0) instanceof ShipTable) {
-                
-                System.out.println("Editando ShipTable");
-            } else {
-                // Tipo desconocido o tratamiento adicional si es necesario
-                System.out.println("Tipo de panel desconocido");
-            }
-            System.out.println("abro ventana para crear lo que haya en la tabla pero en realidad edito");
-        }
-    }
-    private class deleteButtonHandler implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if(localMutablePanel.getComponent(0) instanceof OwnerTable){
-                
-                System.out.println("Borro datos de OwnerTable");
-            }else if (localMutablePanel.getComponent(0) instanceof ShipTable) {
-                
-                System.out.println("Borro datos de ShipTable");
-            } else {
-                // Tipo desconocido o tratamiento adicional si es necesario
-                System.out.println("Tipo de panel desconocido");
-            }
-            System.out.println("abro ventana para borrar lo que haya en la tabla");
         }
     }
 }

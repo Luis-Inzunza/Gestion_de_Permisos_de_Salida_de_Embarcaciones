@@ -36,7 +36,7 @@ public class NavigationWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         navPanel = new javax.swing.JPanel();
-        searchIcon = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
         searchBar = new javax.swing.JTextField();
         shipListBtn = new javax.swing.JButton();
         ownerListBtn = new javax.swing.JButton();
@@ -56,9 +56,9 @@ public class NavigationWindow extends javax.swing.JFrame {
 
         navPanel.setBackground(new java.awt.Color(170, 234, 248));
 
-        searchIcon.setBackground(new java.awt.Color(170, 234, 248));
-        searchIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/searchIcon.png"))); // NOI18N
-        searchIcon.setBorderPainted(false);
+        searchButton.setBackground(new java.awt.Color(170, 234, 248));
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/viewIcons/searchIcon.png"))); // NOI18N
+        searchButton.setBorderPainted(false);
 
         searchBar.setName(""); // NOI18N
         searchBar.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +127,7 @@ public class NavigationWindow extends javax.swing.JFrame {
                     .addGroup(navPanelLayout.createSequentialGroup()
                         .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(38, 38, 38)
                         .addComponent(filterComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -160,7 +160,7 @@ public class NavigationWindow extends javax.swing.JFrame {
                     .addGroup(navPanelLayout.createSequentialGroup()
                         .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(searchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(navPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(navPanelLayout.createSequentialGroup()
@@ -264,7 +264,7 @@ public class NavigationWindow extends javax.swing.JFrame {
     private javax.swing.JButton ownerListBtn;
     private javax.swing.JButton prevBtn;
     private javax.swing.JTextField searchBar;
-    private javax.swing.JButton searchIcon;
+    private javax.swing.JButton searchButton;
     private javax.swing.JButton shipListBtn;
     // End of variables declaration//GEN-END:variables
     
@@ -289,7 +289,7 @@ public class NavigationWindow extends javax.swing.JFrame {
     }
 
     public void setSearchButtonListener(ActionListener listener) {
-        searchIcon.addActionListener(listener);;
+        searchButton.addActionListener(listener);
     }
 
     public void setShipListButtonListener(ActionListener listener) {

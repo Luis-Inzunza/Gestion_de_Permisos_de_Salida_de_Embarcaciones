@@ -37,7 +37,7 @@ public class ShipTable extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Ship Name", "Port Captaincy", "Ship Status"
+                "Nombre del barco", "Capitania del puerto", "Estado del barco"
             }
         ) {
             Class[] types = new Class [] {

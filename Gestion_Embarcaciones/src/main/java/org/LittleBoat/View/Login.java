@@ -46,29 +46,22 @@ public class Login extends javax.swing.JFrame {
 
         NameLabel.setBackground(new java.awt.Color(0, 0, 0));
         NameLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        NameLabel.setForeground(new java.awt.Color(0, 0, 0));
         NameLabel.setText("LittleBoat");
 
         TitleLabel.setBackground(new java.awt.Color(0, 0, 0));
         TitleLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        TitleLabel.setForeground(new java.awt.Color(0, 0, 0));
         TitleLabel.setText("Administracion de Embarcaciones");
 
         AccessLabel.setBackground(new java.awt.Color(0, 0, 0));
         AccessLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        AccessLabel.setForeground(new java.awt.Color(0, 0, 0));
         AccessLabel.setText("Clave de acceso :");
 
-        AccessText.setBackground(new java.awt.Color(255, 255, 255));
-        AccessText.setForeground(new java.awt.Color(0, 0, 0));
         AccessText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AccessTextActionPerformed(evt);
             }
         });
 
-        AccessBtn.setBackground(new java.awt.Color(255, 255, 255));
-        AccessBtn.setForeground(new java.awt.Color(0, 0, 0));
         AccessBtn.setText("Entrar");
         AccessBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

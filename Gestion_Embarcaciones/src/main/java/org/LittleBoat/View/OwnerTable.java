@@ -37,7 +37,7 @@ public class OwnerTable extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Full Name", "Phone Number", "Email"
+                "Nombre Completo", "Telefono", "Correo Electronico"
             }
         ) {
             Class[] types = new Class [] {
