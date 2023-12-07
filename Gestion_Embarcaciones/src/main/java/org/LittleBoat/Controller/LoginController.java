@@ -28,7 +28,7 @@ public class LoginController {
         public void actionPerformed(ActionEvent e) {
             String out_password = localLogin.getAccessTextFieldText();
             if(out_password.equals(loginPassword)){
-                localNavigationController = new NavWDController(localNavigationWindow);
+               //localNavigationController = new NavWDController(localNavigationWindow);
                 localNavigationWindow.setVisible(true);  
             }
         }

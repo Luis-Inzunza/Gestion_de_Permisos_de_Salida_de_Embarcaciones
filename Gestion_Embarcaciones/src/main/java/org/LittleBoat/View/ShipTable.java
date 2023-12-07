@@ -15,37 +15,6 @@ public class ShipTable extends javax.swing.JPanel {
      */
     public ShipTable() {
         initComponents();
-        ButtonsType shipButtons = ButtonsType.BUTTONS_SHIP;
-        //shipTable.getColumnModel().getColumn(3).setCellRenderer(new InsertOwnerTableButtons());
-        TableActionEvent actionEvent = new TableActionEvent() {
-
-            @Override
-            public void onCertificadeButton(int row) {
-            }
-
-            @Override
-            public void onCrewmateButton(int row) {
-                System.out.println("crewmate en "+row);
-                CrewmatesTable crewmatesTable = new CrewmatesTable();
-                crewmatesTable.setVisible(true);
-            }
-
-            @Override
-            public void onEditButton(int row) {
-                System.out.println("edit en "+ row);
-                NuevoBarco newShip = new NuevoBarco();
-                newShip.setVisible(true);
-            }
-
-            @Override
-            public void onDeleteButton(int row) {
-                System.out.println("delete en "+ row);
-                System.out.println("cambiar el status de visibilidad a 0");
-            }
-            
-        };
-        shipTable.getColumnModel().getColumn(3).setCellRenderer(new TableButtonsRenderer(shipButtons));
-        shipTable.getColumnModel().getColumn(3).setCellEditor(new EditTableButtons(shipButtons,actionEvent));  
     }
 
     /**
@@ -62,20 +31,20 @@ public class ShipTable extends javax.swing.JPanel {
 
         shipTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Ship Name", "Port Captaincy", "Ship Status", ""
+                "Ship Name", "Port Captaincy", "Ship Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -93,7 +62,7 @@ public class ShipTable extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
