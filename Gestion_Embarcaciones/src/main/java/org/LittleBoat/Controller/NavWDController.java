@@ -3,8 +3,11 @@ package org.LittleBoat.Controller;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 import org.LittleBoat.View.Historial;
 import org.LittleBoat.View.NavigationWindow;
@@ -12,16 +15,21 @@ import org.LittleBoat.View.NuevoBarco;
 import org.LittleBoat.View.NuevoPropetario;
 import org.LittleBoat.View.OwnerTable;
 import org.LittleBoat.View.ShipTable;
+import org.LittleBoat.connection.H2Connection;
+import org.LittleBoat.dao.BarcosDAO;
+import org.LittleBoat.dao.PropietariosDAO;
+import org.LittleBoat.dto.BarcosDTO;
+import org.LittleBoat.dto.PropietariosDTO;
 
-public class NavWDController{
+public class NavWDController {
 
     private final NavigationWindow navigationWindow;
     private final OwnerTable localOwnerList;
     private final ShipTable localShipList;
     private JPanel localMutablePanel;
-    private JTextField searchBar; //lo usare cuando le de al boton de busqueda
+    private JTextField searchBar; // lo usare cuando le de al boton de busqueda
 
-    public NavWDController(NavigationWindow inNavigationWindow/*,TableButtonsController in_TableButtonsController*/) {
+    public NavWDController(NavigationWindow inNavigationWindow) {
         navigationWindow = inNavigationWindow;
         localMutablePanel = navigationWindow.getMutablePanel();
         navigationWindow.setSearchButtonListener(new SearchButtonHandler());
@@ -33,19 +41,38 @@ public class NavWDController{
         navigationWindow.setNextButtonListener(new NextButtonHandler());
         navigationWindow.setCertificadeHistoryListener(new CertificateHistoryButtonHandler());
         navigationWindow.setFilterComboBoxListener(new FilterButtonHandler());
-        navigationWindow.setCertificadesButtonListener(new certificadesButtonHandler());
-        navigationWindow.setCrewmatesButtonListener(new crewmatesButtonHandler());
-        navigationWindow.setEditButtonListener(new editButtonHandler());
-        navigationWindow.setDeleteButtonListener(new deleteButtonHandler());
         localOwnerList = new OwnerTable();
         localShipList = new ShipTable();
-        loadOwnerView();
+        loadShipView();
+    }
+
+    private void loadShipTableModel() {
+        DefaultTableModel model = (DefaultTableModel) localShipList.getShipTable().getModel();
+        BarcosDAO barcosDAO = new BarcosDAO(H2Connection.getInstance());
+        ArrayList<BarcosDTO> listabarcos = (ArrayList<BarcosDTO>) barcosDAO.findAll();
+        for (BarcosDTO barco : listabarcos) {
+            model.addRow(new Object[] { barco.getNomBarco(), barco.getCapitaniaPuerto(), barco.getEstadoBarco() });
+        }
+        localShipList.getShipTable().setModel(model);
+    }
+
+    private void loadOwnerTableModel() {
+        DefaultTableModel model = (DefaultTableModel) localOwnerList.getOwnerTable().getModel();
+        PropietariosDAO propietariosDAO = new PropietariosDAO(H2Connection.getInstance());
+        ArrayList<PropietariosDTO> listapPopietarios = (ArrayList<PropietariosDTO>) propietariosDAO.findAll();
+        for (PropietariosDTO propietario : listapPopietarios) {
+            model.addRow(
+                    new Object[] { propietario.getNomProp() + " " + propietario.getApsProp(), propietario.getTelefono(),
+                            propietario.getCorreo() });
+        }
+        localOwnerList.getOwnerTable().setModel(model);
     }
 
     private void loadShipView() {
         localShipList.setSize(localMutablePanel.getSize());
         localShipList.setLocation(0, 0);
         localMutablePanel.removeAll();
+        loadShipTableModel();
         localMutablePanel.add(localShipList, BorderLayout.CENTER);
         localMutablePanel.revalidate();
         localMutablePanel.repaint();
@@ -55,15 +82,15 @@ public class NavWDController{
         localOwnerList.setSize(localMutablePanel.getSize());
         localOwnerList.setLocation(0, 0);
         localMutablePanel.removeAll();
+        loadOwnerTableModel();
         localMutablePanel.add(localOwnerList, BorderLayout.CENTER);
         localMutablePanel.revalidate();
         localMutablePanel.repaint();
     }
 
-    
     private class FilterButtonHandler implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) {  
+        public void actionPerformed(ActionEvent e) {
             System.out.println("conecto al back y proyecto en la pagina segun el filtro el cual es");
             System.out.println(navigationWindow.getFilterComboBoxSelectedItem());
         }
@@ -84,16 +111,15 @@ public class NavWDController{
             System.out.println("distinguir qué lista está activa y redirigir a la ventana correcta");
             if (localMutablePanel.getComponent(0) instanceof OwnerTable) {
                 NuevoPropetario newOwnerWindow = new NuevoPropetario();
-                newOwnerWindow.setVisible(true);
+                newOwnerWindowController newOwnerWindowController = new newOwnerWindowController(newOwnerWindow);
             } else if (localMutablePanel.getComponent(0) instanceof ShipTable) {
                 NuevoBarco newShipWindow = new NuevoBarco();
-                newShipWindow.setVisible(true);
+                newShipWindowController newShipWindowController = new newShipWindowController(newShipWindow);
             } else {
                 System.out.println("error");
             }
         }
     }
-    
 
     private class ShipListButtonHandler implements ActionListener {
         @Override
@@ -131,50 +157,6 @@ public class NavWDController{
             System.out.println("desplegar la ventana de historial de embarcaciones");
             Historial historial = new Historial();
             historial.setVisible(true);
-        }
-    }
-    private class certificadesButtonHandler implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {  
-            System.out.println("abro ventana de certificados de embarcacion");
-        }
-    }
-    private class crewmatesButtonHandler implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {  
-            System.out.println("abro ventana de tripulantes");
-        }
-    }
-    private class editButtonHandler implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if(localMutablePanel.getComponent(0) instanceof OwnerTable){
-                
-                System.out.println("Edito datos de OwnerTable");
-            }else if (localMutablePanel.getComponent(0) instanceof ShipTable) {
-                
-                System.out.println("Editando ShipTable");
-            } else {
-                // Tipo desconocido o tratamiento adicional si es necesario
-                System.out.println("Tipo de panel desconocido");
-            }
-            System.out.println("abro ventana para crear lo que haya en la tabla pero en realidad edito");
-        }
-    }
-    private class deleteButtonHandler implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if(localMutablePanel.getComponent(0) instanceof OwnerTable){
-                
-                System.out.println("Borro datos de OwnerTable");
-            }else if (localMutablePanel.getComponent(0) instanceof ShipTable) {
-                
-                System.out.println("Borro datos de ShipTable");
-            } else {
-                // Tipo desconocido o tratamiento adicional si es necesario
-                System.out.println("Tipo de panel desconocido");
-            }
-            System.out.println("abro ventana para borrar lo que haya en la tabla");
         }
     }
 }
