@@ -62,10 +62,7 @@ public class ShipTable extends javax.swing.JPanel {
 
         shipTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Ship Name", "Port Captaincy", "Ship Status", ""

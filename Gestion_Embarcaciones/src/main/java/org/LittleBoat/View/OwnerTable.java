@@ -64,10 +64,7 @@ public class OwnerTable extends javax.swing.JPanel {
 
         ownerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Full Name", "Phone Number", "Email", ""
